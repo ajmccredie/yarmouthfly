@@ -15,13 +15,13 @@
   --shadow: 0 14px 34px rgba(0,0,0,.24), 0 3px 8px rgba(0,0,0,.18);
   --radius: 26px;
   --container: 1240px;
+  --header-height: 92px;
   --curtain-image: url("../images/curtain.png");
   --seat-image: url("../images/seats.png");
   --page-bg: url("../images/radiatebg.png");
 }
 
 /* PAGE BACKGROUND OPTIONS */
-/* Apply to body: <body class="bg-radiate">, <body class="bg-rustic">, or <body class="bg-star"> */
 body.bg-radiate{
   --page-bg: url("../images/radiatebg.png");
 }
@@ -60,7 +60,7 @@ body{
   overflow-x:hidden;
 }
 
-/* light atmospheric tint without hiding the background */
+/* light atmospheric tint */
 body::before{
   content:"";
   position:fixed;
@@ -70,25 +70,24 @@ body::before{
   z-index:0;
 }
 
-/* theatre curtains */
+/* theatre curtains - now below sticky header */
 body::after{
   content:"";
   position:fixed;
-  top:0;
+  top:var(--header-height);
   left:0;
   right:0;
-  height:180px;
+  height:170px;
   background-image:var(--curtain-image);
   background-size:cover;
   background-repeat:no-repeat;
   background-position:center top;
   opacity:.9;
   pointer-events:none;
-  z-index:40;
+  z-index:35;
 }
 
 /* theatre seats */
-/* Add <div class="theatre-seats" aria-hidden="true"></div> directly after opening <body> */
 .theatre-seats{
   position:fixed;
   left:0;
@@ -508,12 +507,13 @@ button:disabled{
 
 /* Footer */
 .site-footer{
-  background:rgba(28,23,20,.95);
+  background:rgba(28,23,20,.98);
   color:var(--gold);
   position:relative;
-  z-index:2;
+  z-index:45;
   border-top:1px solid rgba(215,187,132,.18);
   padding:1.4rem 0 2rem;
+  box-shadow:0 -10px 28px rgba(0,0,0,.24);
 }
 
 .footer-inner{
@@ -535,6 +535,10 @@ button:disabled{
 
 /* Tablet */
 @media (max-width: 980px){
+  :root{
+    --header-height: 84px;
+  }
+
   body{
     background-attachment:scroll;
   }

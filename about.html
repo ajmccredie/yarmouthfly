@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classes | Trapeze School</title>
+    <title>About | Trapeze School</title>
     <meta
       name="description"
-      content="Classes and courses at the trapeze school."
+      content="Learn about the trapeze school team, purpose and goals."
     />
     <link
       href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
@@ -14,7 +14,8 @@
     />
     <link rel="stylesheet" href="styles/trapeze.css" />
   </head>
-  <body>
+  <body class="bg-star">
+    <div class="theatre-seats" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="site-header">
@@ -45,37 +46,38 @@
     </header>
 
     <main id="main-content">
-      <section class="container stage-split">
-        <div class="stage-image">
-          <img src="images/classes-hero.jpg" alt="Historic theatre exterior" />
+      <section class="container">
+        <div class="stage-panel panel-centered">
+          <h1>About Us</h1>
+          <p>A chunk of information about the school’s purpose and goals.</p>
+          <p>Lots of lovely purpose.</p>
+          <p>Lots of lovely goals.</p>
         </div>
 
-        <div class="stage-panel stage-copy">
-          <h1>Classes and Courses</h1>
+        <div class="stage-panel panel-centered">
+          <h2>The Team</h2>
 
-          <div class="course-list">
-            <article class="course">
-              <div class="course-copy">
-                <h3>Drop In</h3>
-                <p>New to trapeze? Want to try something different? This is for you.</p>
+          <div class="team-grid">
+            <article class="person">
+              <div class="polaroid">
+                <img src="images/team-mat.jpg" alt="Mat" />
+                <div class="polaroid-caption">Mat</div>
               </div>
-              <a href="contact.html" class="btn">Book Drop In</a>
+              <div>
+                <h3>Mat Herman</h3>
+                <p>Blah blah Mat.</p>
+              </div>
             </article>
 
-            <article class="course">
-              <div class="course-copy">
-                <h3>Pro Development</h3>
-                <p>Been flying a while and want to see what it would take to turn pro?</p>
+            <article class="person">
+              <div class="polaroid">
+                <img src="images/team-placeholder.jpg" alt="Team member portrait" />
+                <div class="polaroid-caption">Name</div>
               </div>
-              <a href="application.html" class="btn">Apply Here</a>
-            </article>
-
-            <article class="course">
-              <div class="course-copy">
-                <h3>Private Sessions</h3>
-                <p>One-to-one or small group coaching tailored to your level and goals.</p>
+              <div>
+                <h3>Team Member</h3>
+                <p>Add more staff, coaches, or collaborators here as needed.</p>
               </div>
-              <a href="contact.html" class="btn">Enquire</a>
             </article>
           </div>
         </div>

@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg-dark: #2c2422;
+  --bg-dark-2: #1f1a18;
+  --paper: #ece7df;
+  --paper-line: rgba(42, 33, 29, 0.8);
+  --ink: #171412;
+  --muted: #5d5550;
+  --gold: #d7bb84;
+  --gold-deep: #9f7c47;
+  --button: #7f1028;
+  --button-hover: #5f0b1d;
+  --panel-bg: rgba(235, 228, 217, 0.72);
+  --shadow: 0 14px 34px rgba(0,0,0,.24), 0 3px 8px rgba(0,0,0,.18);
+  --radius: 26px;
+  --container: 1240px;
+  --curtain-image: url("../images/curtain.png");
+  --seat-image: url("../images/seats.png");
+  --page-bg: url("../images/radiatebg.png");
+}
+
+/* PAGE BACKGROUND OPTIONS */
+/* Apply to body: <body class="bg-radiate">, <body class="bg-rustic">, or <body class="bg-star"> */
+body.bg-radiate{
+  --page-bg: url("../images/radiatebg.png");
+}
+
+body.bg-rustic{
+  --page-bg: url("../images/rusticbg.png");
+}
+
+body.bg-star{
+  --page-bg: url("../images/starbg.png");
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Alumni Sans", sans-serif;
+  font-size:1.28rem;
+  line-height:1.5;
+  color:var(--ink);
+  background:var(--page-bg);
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* light atmospheric tint without hiding the background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(20,12,10,.12);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* theatre curtains */
+body::after{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:180px;
+  background-image:var(--curtain-image);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center top;
+  opacity:.9;
+  pointer-events:none;
+  z-index:40;
+}
+
+/* theatre seats */
+/* Add <div class="theatre-seats" aria-hidden="true"></div> directly after opening <body> */
+.theatre-seats{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:130px;
+  background-image:var(--seat-image);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  opacity:.9;
+  pointer-events:none;
+  z-index:40;
+}
+
+img{
+  max-width:100%;
+  height:auto;
+  display:block;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.container{
+  width:min(var(--container), 92%);
+  margin-inline:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* Accessibility */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.skip-link:focus{
+  left:1rem;
+  top:1rem;
+  width:auto;
+  height:auto;
+  background:#000;
+  color:#fff;
+  padding:.7rem 1rem;
+  border-radius:.5rem;
+  z-index:9999;
+}
+
+/* Header / nav */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(28,23,20,.94);
+  color:var(--gold);
+  border-bottom:1px solid rgba(215,187,132,.22);
+  box-shadow:0 8px 24px rgba(0,0,0,.22);
+  backdrop-filter:blur(8px);
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  min-height:92px;
+  padding:.85rem 0;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  color:var(--gold);
+  font-family:"BenchNine", sans-serif;
+  font-size:clamp(1.8rem, 2vw, 2.5rem);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.brand-logo{
+  width:72px;
+  height:auto;
+  flex:0 0 auto;
+}
+
+.brand-text{
+  line-height:1;
+}
+
+.site-nav ul{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:2rem;
+  margin:0;
+  padding:0;
+}
+
+.site-nav a{
+  position:relative;
+  font-family:"BenchNine", sans-serif;
+  font-size:clamp(1.6rem, 1.8vw, 2.1rem);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--gold);
+  line-height:1;
+  transition:color .25s ease, opacity .25s ease;
+}
+
+.site-nav a:hover{
+  color:#f3e1ba;
+}
+
+.site-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0%;
+  height:1px;
+  background:var(--gold);
+  transition:width .25s ease;
+}
+
+.site-nav a:hover::after{
+  width:100%;
+}
+
+.nav-toggle{
+  display:none;
+  width:54px;
+  height:54px;
+  border:0;
+  border-radius:14px;
+  background:linear-gradient(rgba(215,187,132,.95), rgba(190,160,102,.95));
+  position:relative;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+}
+
+.nav-toggle .bar{
+  position:absolute;
+  left:12px;
+  right:12px;
+  height:3px;
+  background:#171412;
+  border-radius:999px;
+}
+
+.nav-toggle .bar:nth-child(1){top:16px;}
+.nav-toggle .bar:nth-child(2){top:25px;}
+.nav-toggle .bar:nth-child(3){top:34px;}
+
+/* Main page spacing */
+main{
+  position:relative;
+  z-index:1;
+  padding:2rem 0 9rem;
+}
+
+/* Reusable content panel */
+.stage-panel{
+  position:relative;
+  margin:2rem 0;
+  padding:2rem;
+  border-radius:22px;
+  background:linear-gradient(var(--panel-bg), var(--panel-bg));
+  border:1px solid rgba(255,255,255,.28);
+  backdrop-filter:blur(4px);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.stage-panel::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:1px solid var(--paper-line);
+  border-radius:18px;
+  opacity:.45;
+  pointer-events:none;
+}
+
+.stage-panel > *{
+  position:relative;
+  z-index:1;
+}
+
+.panel-title,
+h1,h2,h3{
+  font-family:"BenchNine", sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  line-height:.92;
+  margin:0 0 .8rem;
+}
+
+h1{
+  font-size:clamp(3.4rem, 7vw, 6.8rem);
+  color:#241a17;
+}
+
+h2{
+  font-size:clamp(2.6rem, 5vw, 4.6rem);
+  color:#2a1d19;
+}
+
+h3{
+  font-size:clamp(2rem, 3vw, 3rem);
+}
+
+p,li{
+  font-size:clamp(1.45rem, 1.7vw, 1.95rem);
+  margin:0 0 1rem;
+  max-width:65ch;
+}
+
+/* Hero / split sections */
+.stage-split{
+  display:grid;
+  grid-template-columns:minmax(320px, 440px) 1fr;
+  gap:2rem;
+  align-items:stretch;
+}
+
+.stage-image{
+  min-height:620px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.stage-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.stage-copy{
+  min-height:620px;
+}
+
+/* Panel variants */
+.panel-compact{
+  padding:1.4rem;
+}
+
+.panel-centered{
+  max-width:1080px;
+  margin-inline:auto;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:240px;
+  min-height:58px;
+  padding:.7rem 1.6rem;
+  background:linear-gradient(rgba(127,16,40,.98), rgba(91,8,27,.98));
+  color:#fff7f4;
+  border-radius:999px;
+  font-family:"BenchNine", sans-serif;
+  font-size:2rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 10px 20px rgba(0,0,0,.24);
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.btn:hover{
+  background:linear-gradient(rgba(95,11,29,.98), rgba(68,6,20,.98));
+  transform:translateY(-2px);
+  box-shadow:0 14px 24px rgba(0,0,0,.28);
+}
+
+/* Team / cards */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:2rem 3rem;
+  margin-top:1rem;
+}
+
+.person{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  gap:1.5rem;
+  align-items:start;
+}
+
+.person h3{
+  margin-top:.2rem;
+  margin-bottom:.4rem;
+}
+
+.person p{
+  margin-bottom:.5rem;
+}
+
+/* Polaroid cards */
+.polaroid{
+  background:#f4f1ea;
+  padding:12px 12px 30px;
+  box-shadow:0 8px 18px rgba(0,0,0,.14);
+  border:1px solid rgba(0,0,0,.08);
+  width:180px;
+}
+
+.polaroid img{
+  aspect-ratio:1 / 1.15;
+  object-fit:cover;
+  width:100%;
+}
+
+.polaroid-caption{
+  text-align:center;
+  margin-top:.45rem;
+  font-size:1.4rem;
+  letter-spacing:.05em;
+}
+
+/* List of courses */
+.course-list{
+  display:grid;
+  gap:2rem;
+}
+
+.course{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:1rem 2rem;
+  align-items:center;
+  padding-bottom:1rem;
+}
+
+.course + .course{
+  border-top:1px solid rgba(0,0,0,.12);
+  padding-top:1.5rem;
+}
+
+.course-copy h3{
+  margin-bottom:.3rem;
+}
+
+.course-copy p{
+  max-width:34ch;
+  margin-bottom:.4rem;
+}
+
+/* Forms */
+form{
+  display:grid;
+  gap:1rem;
+  margin-top:1.5rem;
+}
+
+label{
+  display:block;
+  margin-bottom:.35rem;
+  font-weight:600;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:.85rem 1rem;
+  font:inherit;
+  border:2px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  background:rgba(255,255,255,.86);
+  transition:border-color .2s ease, background .2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none;
+  border-color:var(--button);
+  background:#fff;
+}
+
+textarea{
+  resize:vertical;
+  min-height:140px;
+}
+
+.form-status{
+  margin-top:1rem;
+  min-height:1.5em;
+  font-weight:600;
+}
+
+.form-status.is-success{
+  color:#1f6b37;
+}
+
+.form-status.is-error{
+  color:#8b1e2d;
+}
+
+button:disabled{
+  opacity:.7;
+  cursor:wait;
+}
+
+/* Footer */
+.site-footer{
+  background:rgba(28,23,20,.95);
+  color:var(--gold);
+  position:relative;
+  z-index:2;
+  border-top:1px solid rgba(215,187,132,.18);
+  padding:1.4rem 0 2rem;
+}
+
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  font-family:"BenchNine", sans-serif;
+  font-size:1.8rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+/* Tablet */
+@media (max-width: 980px){
+  body{
+    background-attachment:scroll;
+  }
+
+  .site-nav{
+    position:absolute;
+    top:100%;
+    right:0;
+    display:none;
+    background:rgba(28,23,20,.96);
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:.8rem 1rem;
+    min-width:280px;
+    backdrop-filter:blur(10px);
+  }
+
+  .site-nav.open{
+    display:block;
+  }
+
+  .site-nav ul{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.8rem;
+  }
+
+  .site-nav a{
+    width:100%;
+    padding:.2rem 0;
+  }
+
+  .nav-toggle{
+    display:block;
+  }
+
+  .stage-split{
+    grid-template-columns:1fr;
+  }
+
+  .stage-image{
+    min-height:360px;
+  }
+
+  .stage-copy{
+    min-height:auto;
+  }
+
+  .team-grid{
+    grid-template-columns:1fr;
+  }
+
+  .course{
+    grid-template-columns:1fr;
+  }
+
+  .btn{
+    width:100%;
+    min-width:unset;
+  }
+
+  .header-inner{
+    min-height:84px;
+  }
+
+  .brand-logo{
+    width:56px;
+  }
+
+  .brand{
+    font-size:1.6rem;
+  }
+
+  body::after{
+    height:120px;
+  }
+
+  .theatre-seats{
+    height:84px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  body{
+    font-size:1.08rem;
+  }
+
+  main{
+    padding:1rem 0 6.5rem;
+  }
+
+  .container{
+    width:94%;
+  }
+
+  .stage-panel{
+    padding:1.2rem;
+    border-radius:18px;
+  }
+
+  .stage-panel::before{
+    inset:8px;
+  }
+
+  .person{
+    grid-template-columns:1fr;
+  }
+
+  .polaroid{
+    width:150px;
+  }
+
+  h1{
+    line-height:.9;
+  }
+
+  p,li{
+    font-size:1.45rem;
+  }
+
+  .site-nav{
+    left:0;
+    right:0;
+    min-width:unset;
+  }
+
+  .site-nav ul{
+    align-items:center;
+  }
+
+  .site-nav a{
+    text-align:center;
+  }
+
+  .theatre-seats{
+    height:70px;
+  }
+}

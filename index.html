@@ -3,75 +3,94 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Steal This Circus</title>
+    <title>Trapeze School | Steal This Circus</title>
     <meta
       name="description"
-      content="Choose between bespoke metal-work and trapeze school from Steal This Circus."
+      content="Flying trapeze and circus training with Steal This Circus Trapeze School."
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Staatliches&family=Work+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="styles/metalwork.css" />
+    <link rel="stylesheet" href="styles/trapeze.css" />
   </head>
-  <body class="portal-page">
-    <div id="loader">
-      <img src="images/stc_logo.png" alt="Loading logo" />
-    </div>
+  <body class="bg-star">
+    <div class="theatre-seats" aria-hidden="true"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header>
-      <div class="navbar">
-        <div class="logo-container">
-          <img src="images/stc_logo.png" alt="Steal This Circus Logo" class="logo-img" />
-          <a href="index.html" class="logo-text">STEAL THIS CIRCUS</a>
-        </div>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <img src="images/stc_logo.png" alt="Steal This Circus Trapeze School" class="brand-logo" />
+          <span class="brand-text">Trapeze School</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <nav class="site-nav" id="site-nav">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="heritage.html">Heritage</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="application.html">Apply</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
 
-    <main class="portal-main">
-      <section class="portal-hero">
-        <img src="images/tent.png" alt="Circus tent background" class="portal-tent" />
-        <div class="portal-overlay">
-          <h1>Choose Your Path</h1>
+    <main id="main-content">
+      <section class="container stage-split">
+        <div class="stage-panel stage-copy">
+          <h1>Flying Trapeze and Circus Training</h1>
           <p>
-            Bespoke fabrication for circus and performance, or training through the trapeze school.
+            Welcome to the trapeze school side of Steal This Circus — a space for
+            flying trapeze, circus training, skill development and creative progression.
           </p>
+          <p>
+            Whether you are trying trapeze for the first time or building toward
+            professional-level practice, we offer structured sessions with a theatrical,
+            welcoming atmosphere.
+          </p>
+          <a href="classes.html" class="btn">View Classes</a>
+        </div>
 
-          <div class="portal-options">
-            <a class="portal-card" href="metalwork.html">
-              <span class="portal-label">Bespoke Metal-work</span>
-              <span class="portal-sub">Custom fabrication, props, rigs and galleries</span>
-            </a>
+        <div class="stage-image">
+          <img src="images/home-hero.jpg" alt="Flying trapeze training in action" />
+        </div>
+      </section>
 
-            <a class="portal-card" href="trapeze/index.html">
-              <span class="portal-label">Trapeze School</span>
-              <span class="portal-sub">Classes, training, flying trapeze and circus skills</span>
-            </a>
-          </div>
+      <section class="container">
+        <div class="stage-panel panel-centered">
+          <h2>Train, Explore, Progress</h2>
+          <p>
+            The school is built around strong foundations, safe progression and a sense
+            of theatre. Sessions are designed to support complete beginners, returning
+            flyers and those looking to move deeper into aerial practice.
+          </p>
+          <p>
+            Explore our heritage, meet the team, browse classes and apply for deeper
+            training opportunities.
+          </p>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-content">
-        <img src="images/stc_logo.png" alt="Steal This Circus Logo" class="footer-squirrel" />
-        <p>&copy; 2026 Steal This Circus</p>
-        <p class="socials">
-          <a href="https://instagram.com/steal_this_circus" target="_blank" rel="noopener noreferrer">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://digitalflyingsquirrels.co.uk" target="_blank" rel="noopener noreferrer">
-            Digital Flying Squirrels
-          </a>
-        </p>
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img src="images/stc_logo.png" alt="" class="brand-logo" />
+          <span>Steal This Circus Trapeze School</span>
+        </div>
+        <p>&copy; <span id="year"></span> Steal This Circus</p>
       </div>
     </footer>
 
-    <script src="js/metalwork.js"></script>
+    <script src="js/trapeze.js"></script>
   </body>
 </html>

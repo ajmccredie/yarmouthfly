@@ -540,7 +540,7 @@ button:disabled{
   }
 
   body{
-    background-attachment:scroll;
+    background-attachment:fixed;
   }
 
   .site-nav{

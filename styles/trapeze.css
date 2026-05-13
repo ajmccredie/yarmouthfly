@@ -295,17 +295,17 @@ h1,h2,h3{
 }
 
 h1{
-  font-size:clamp(3.4rem, 7vw, 6.8rem);
+  font-size:clamp(2.6rem, 5vw, 5rem);
   color:#241a17;
 }
 
 h2{
-  font-size:clamp(2.6rem, 5vw, 4.6rem);
+  font-size:clamp(2rem, 4vw, 3.6rem);
   color:#2a1d19;
 }
 
 h3{
-  font-size:clamp(2rem, 3vw, 3rem);
+  font-size:clamp(1.6rem, 2.5vw, 2.4rem);
 }
 
 p,li{

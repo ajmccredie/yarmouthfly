@@ -12,9 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preload" href="images/flighthouse.png" as="image" />
     <link rel="stylesheet" href="styles/trapeze.css" />
-    <link rel="preload" href="images/flighthouse.png" as="image">
   </head>
+
   <body class="bg-radiate">
     <div class="theatre-seats" aria-hidden="true"></div>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -57,31 +58,64 @@
 
           <form
             action="https://formspree.io/f/xqejknbv"
-            method="post"
+            method="POST"
+            class="application-form"
+            id="application-form"
             data-formspree-form
             data-success-message="Thank you — your application has been submitted."
             data-button-text="Submit Application"
           >
-            <input type="hidden" name="_subject" value="Trapeze School Application Form" />
+            <input type="hidden" name="form_type" value="FlightHouse Application Form" />
+
+            <div class="trap-field" aria-hidden="true">
+              <label>
+                Leave this field empty
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
+
+            <input type="hidden" name="form_load_time" data-form-load-time />
 
             <p>
               <label for="app-name">Full name</label>
-              <input type="text" id="app-name" name="full_name" required />
+              <input
+                type="text"
+                id="app-name"
+                name="full_name"
+                autocomplete="name"
+                required
+              />
             </p>
 
             <p>
               <label for="app-email">Email</label>
-              <input type="email" id="app-email" name="email" required />
+              <input
+                type="email"
+                id="app-email"
+                name="email"
+                autocomplete="email"
+                required
+              />
             </p>
 
             <p>
               <label for="app-phone">Phone</label>
-              <input type="tel" id="app-phone" name="phone" />
+              <input
+                type="tel"
+                id="app-phone"
+                name="phone"
+                autocomplete="tel"
+              />
             </p>
 
             <p>
               <label for="app-location">Location</label>
-              <input type="text" id="app-location" name="location" />
+              <input
+                type="text"
+                id="app-location"
+                name="location"
+                autocomplete="address-level2"
+              />
             </p>
 
             <p>
@@ -97,30 +131,51 @@
 
             <p>
               <label for="app-experience">Previous experience</label>
-              <textarea id="app-experience" name="previous_experience" rows="5"></textarea>
+              <textarea
+                id="app-experience"
+                name="previous_experience"
+                rows="5"
+              ></textarea>
             </p>
 
             <p>
               <label for="app-goals">Goals / motivation</label>
-              <textarea id="app-goals" name="goals_motivation" rows="5" required></textarea>
+              <textarea
+                id="app-goals"
+                name="goals_motivation"
+                rows="5"
+                required
+              ></textarea>
             </p>
 
             <p>
               <label for="app-availability">Availability</label>
-              <textarea id="app-availability" name="availability" rows="4"></textarea>
+              <textarea
+                id="app-availability"
+                name="availability"
+                rows="4"
+              ></textarea>
             </p>
 
             <p>
               <label for="app-medical">Medical / access notes</label>
-              <textarea id="app-medical" name="medical_access_notes" rows="4"></textarea>
+              <textarea
+                id="app-medical"
+                name="medical_access_notes"
+                rows="4"
+              ></textarea>
             </p>
 
             <p>
               <label for="app-emergency">Emergency contact</label>
-              <input type="text" id="app-emergency" name="emergency_contact" />
+              <input
+                type="text"
+                id="app-emergency"
+                name="emergency_contact"
+              />
             </p>
 
-            <p>
+            <p class="checkbox-wrap">
               <label>
                 <input type="checkbox" name="consent" required />
                 I confirm the information provided is correct and consent to being contacted about this application.
@@ -128,7 +183,9 @@
             </p>
 
             <p>
-              <button type="submit" class="btn">Submit Application</button>
+              <button type="submit" class="btn form-submit-btn">
+                Submit Application
+              </button>
             </p>
           </form>
 
@@ -140,12 +197,47 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-brand">
-          <img src="images/stc_logo.png" alt="" class="brand-logo" />
-          <span>Steal This Circus Trapeze School</span>
+          <img
+            src="images/flighthouse.png"
+            alt="FlightHouse"
+            class="brand-logo"
+          />
         </div>
-        <p>&copy; <span id="year"></span> Steal This Circus</p>
+
+        <div class="footer-links">
+          <a href="#" target="_blank" rel="noopener noreferrer">Steal This Circus</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Hippodrome</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Digital Flying Squirrels</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+
+        <div class="footer-credit">
+          &copy; <span id="year"></span> FlightHouse UK
+        </div>
       </div>
     </footer>
+
+    <div class="form-popup" id="form-popup" aria-hidden="true">
+      <div class="form-popup-inner">
+        <button class="popup-close" id="popup-close" aria-label="Close popup">
+          &times;
+        </button>
+
+        <h2>Application Received</h2>
+
+        <p>
+          Thank you for applying to FlightHouse.
+        </p>
+
+        <p>
+          Your application has been submitted successfully and we’ll get back to you soon.
+        </p>
+
+        <button class="btn popup-btn" id="popup-button">
+          Continue
+        </button>
+      </div>
+    </div>
 
     <script src="js/trapeze.js"></script>
   </body>

@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const forms = document.querySelectorAll("[data-formspree-form]");
   const yearEl = document.getElementById("year");
 
+  const popup = document.getElementById("form-popup");
+  const popupClose = document.getElementById("popup-close");
+  const popupButton = document.getElementById("popup-button");
+
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
@@ -36,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (event.key === "Escape") {
         siteNav.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
+        closePopup();
       }
     });
 
@@ -47,12 +52,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function openPopup() {
+    if (!popup) return;
+    popup.classList.add("active");
+    popup.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePopup() {
+    if (!popup) return;
+    popup.classList.remove("active");
+    popup.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (popupClose) {
+    popupClose.addEventListener("click", closePopup);
+  }
+
+  if (popupButton) {
+    popupButton.addEventListener("click", closePopup);
+  }
+
+  if (popup) {
+    popup.addEventListener("click", (event) => {
+      if (event.target === popup) {
+        closePopup();
+      }
+    });
+  }
+
   forms.forEach((form) => {
     const status = form.parentElement.querySelector(".form-status");
     const submitButton = form.querySelector('button[type="submit"]');
+    const loadTimeInput = form.querySelector("[data-form-load-time]");
+
+    if (loadTimeInput) {
+      loadTimeInput.value = Date.now();
+    }
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+
+      const honeypot = form.querySelector('input[name="_gotcha"]');
+
+      if (honeypot && honeypot.value.trim() !== "") {
+        return;
+      }
+
+      if (loadTimeInput) {
+        const timeTaken = Date.now() - Number(loadTimeInput.value);
+
+        if (timeTaken < 4000) {
+          return;
+        }
+      }
 
       if (status) {
         status.textContent = "Sending...";
@@ -81,6 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
               form.dataset.successMessage || "Thank you. Your form has been sent.";
             status.classList.add("is-success");
           }
+
+          openPopup();
         } else {
           if (status) {
             status.textContent =
@@ -98,6 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (submitButton) {
           submitButton.disabled = false;
           submitButton.textContent = form.dataset.buttonText || "Send";
+        }
+
+        if (loadTimeInput) {
+          loadTimeInput.value = Date.now();
         }
       }
     });

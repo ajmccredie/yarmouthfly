@@ -7,6 +7,7 @@
     <meta name="description" content="Contact the trapeze school." />
     <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles/trapeze.css" />
+    <link rel="preload" href="images/flighthouse.png" as="image">
   </head>
 
   <body class="bg-radiate">
@@ -16,8 +17,10 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand">
-          <img src="images/flighthouse.png" alt="FlightHouse UK Centre for Flying Trapeze" class="brand-logo" />
-          <span class="brand-text">Trapeze School</span>
+          <div class="brand-lockup">
+            <img src="images/flighthouse.png" alt="FlightHouse" class="brand-logo" />
+            <span class="brand-subtitle">The UK Centre for Flying Trapeze</span>
+          </div>
         </a>
 
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">

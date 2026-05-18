@@ -16,22 +16,22 @@
   --radius: 26px;
   --container: 1240px;
   --header-height: 92px;
-  --curtain-image: url("../images/curtain.png");
-  --seat-image: url("../images/seats.png");
-  --page-bg: url("../images/radiatebg.png");
+  --curtain-image: url("../images/curtain.webp");
+  --seat-image: url("../images/seats.webp");
+  --page-bg: url("../images/radiatebg.webp");
 }
 
 /* PAGE BACKGROUND OPTIONS */
 body.bg-radiate{
-  --page-bg: url("../images/radiatebg.png");
+  --page-bg: url("../images/radiatebg.webp");
 }
 
 body.bg-rustic{
-  --page-bg: url("../images/rusticbg.png");
+  --page-bg: url("../images/rusticbg.webp");
 }
 
 body.bg-star{
-  --page-bg: url("../images/starbg.png");
+  --page-bg: url("../images/starbg.webp");
 }
 
 *{box-sizing:border-box}
@@ -184,6 +184,24 @@ a{
 
 .brand-text{
   display:none;
+}
+
+.brand-lockup{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:.15rem;
+}
+
+.brand-subtitle{
+  font-family:"BenchNine", sans-serif;
+  color:var(--gold);
+  font-size:clamp(1rem, 1.4vw, 1.35rem);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  line-height:1;
+  margin-left:.15rem;
+  opacity:.9;
 }
 
 /* HEADER SPACING */

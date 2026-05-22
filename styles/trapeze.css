@@ -70,16 +70,16 @@ body::before{
   z-index:0;
 }
 
-/* theatre curtains - now below sticky header */
+/* theatre curtains - below sticky header */
 body::after{
   content:"";
   position:fixed;
   top:var(--header-height);
   left:0;
   right:0;
-  height:170px;
+  height:clamp(170px, 16vw, 320px);
   background-image:var(--curtain-image);
-  background-size:cover;
+  background-size:100% auto;
   background-repeat:no-repeat;
   background-position:center top;
   opacity:.9;
@@ -93,9 +93,9 @@ body::after{
   left:0;
   right:0;
   bottom:0;
-  height:130px;
+  height:clamp(130px, 13vw, 260px);
   background-image:var(--seat-image);
-  background-size:cover;
+  background-size:100% auto;
   background-repeat:no-repeat;
   background-position:center bottom;
   opacity:.9;
@@ -680,11 +680,11 @@ button:disabled{
   }
 
   body::after{
-    height:120px;
+    height:clamp(120px, 18vw, 210px);
   }
 
   .theatre-seats{
-    height:84px;
+    height:clamp(84px, 15vw, 160px);
   }
 }
 
@@ -742,7 +742,7 @@ button:disabled{
   }
 
   .theatre-seats{
-    height:70px;
+    height:clamp(70px, 18vw, 120px);
   }
 
   .header-inner{

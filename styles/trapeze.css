@@ -1037,3 +1037,42 @@ button:disabled {
     min-height: 860px;
   }
 }
+
+.booking-section{
+  width:100%;
+  max-width:none;
+  padding:0 2rem;
+}
+
+.booking-panel{
+  width:100%;
+  max-width:none;
+  margin:2rem auto;
+}
+
+.booking-iframe{
+  display:block;
+  width:100%;
+  min-height:900px;
+  border:none;
+}
+
+@media (min-width:1200px){
+  .booking-section{
+    padding:0 3rem;
+  }
+
+  .booking-iframe{
+    min-height:1050px;
+  }
+}
+
+@media (max-width:640px){
+  .booking-section{
+    padding:0 .75rem;
+  }
+
+  .booking-iframe{
+    min-height:850px;
+  }
+}

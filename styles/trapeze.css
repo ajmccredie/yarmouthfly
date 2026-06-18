@@ -1076,3 +1076,28 @@ button:disabled {
     min-height:850px;
   }
 }
+
+.booking-fallback{
+  text-align:center;
+  margin:2rem 0 1rem;
+}
+
+.booking-fallback p{
+  max-width:none;
+  margin-bottom:1rem;
+  color:var(--ink);
+}
+
+.booking-btn{
+  min-width:320px;
+  font-size:1.8rem;
+}
+
+@media (max-width:640px){
+
+  .booking-btn{
+    width:100%;
+    min-width:unset;
+  }
+
+}

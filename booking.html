@@ -1,104 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FlightHouse Trapeze Bookings</title>
-    <meta
-      name="description"
-      content="Flying trapeze and circus training with Steal This Circus Trapeze School."
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/trapeze.css" />
-    <link rel="preload" href="images/flighthouse.webp" as="image">
-  </head>
-  <body class="bg-star">
-    <div class="theatre-seats" aria-hidden="true"></div>
-    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <a href="index.html" class="brand">
-          <div class="brand-lockup">
-            <img src="images/flighthouse.webp" alt="FlightHouse" class="brand-logo" />
-            <span class="brand-subtitle">The UK Centre for Flying Trapeze</span>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlightHouse Trapeze Bookings</title>
+  <meta name="description" content="Flying trapeze and circus training with Steal This Circus Trapeze School." />
+  <link
+    href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles/trapeze.css" />
+  <link rel="preload" href="images/flighthouse.webp" as="image">
+</head>
+
+<body class="bg-star">
+  <div class="theatre-seats" aria-hidden="true"></div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-lockup">
+          <img src="images/flighthouse.webp" alt="FlightHouse" class="brand-logo" />
+          <span class="brand-subtitle">The UK Centre for Flying Trapeze</span>
+        </div>
+      </a>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="heritage.html">Heritage</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="classes.html">Training</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="booking-section">
+      <div class="stage-panel booking-panel">
+        <h1>Book a class with us</h1>
+        <h2>Trapeze Drop-In at FlightHouse</h2>
+        <h3>Regular class time-table to be announced soon</h3>
+        <p>More classes will be listed and available for booking soon. Watch this space.</p>
+        <iframe class="booking-iframe" src="https://bookwhen.com/flighthouse/iframe" frameborder="0" scrolling="yes"
+          seamless="seamless"></iframe>
+        <div class="booking-fallback">
+          <p>
+            Having trouble viewing the booking calendar?
+          </p>
+          <a href="https://bookwhen.com/flighthouse" target="_blank" rel="noopener noreferrer" class="btn booking-btn">
+            Open Booking System
+          </a>
+        </div>
+        <h3>Other questions and enquiries</h3>
+        <p>Please use our contact form for all other questions and enquiries.</p>
+        <a href="contact.html" class="btn">Contact</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner footer-inner-centered">
+
+      <div class="footer-brand">
+        <img src="images/flighthouse.webp" alt="FlightHouse" class="footer-main-logo" />
+      </div>
+
+      <div class="footer-logo-links">
+        <a href="https://www.stealthiscircus.co.uk" target="_blank" rel="noopener noreferrer"
+          aria-label="Steal This Circus">
+          <img src="images/stc_logo1.webp" alt="Steal This Circus" />
         </a>
 
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+        <a href="https://www.hippodromecircus.co.uk" target="_blank" rel="noopener noreferrer">
+          Hippodrome Circus
+        </a>
 
-        <nav class="site-nav" id="site-nav">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="heritage.html">Heritage</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="classes.html">Training</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+        <a href="https://www.digitalflyingsquirrels.co.uk" target="_blank" rel="noopener noreferrer"
+          aria-label="Digital Flying Squirrels">
+          <img src="images/dfs_logo.webp" alt="Digital Flying Squirrels" />
+        </a>
+
+        <a href="https://www.instagram.com/flighthouseuk" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram">
+          <img src="images/insta.webp" alt="Instagram" />
+        </a>
       </div>
-    </header>
 
-    <main id="main-content">
-      <section class="booking-section">
-        <div class="stage-panel booking-panel">
-          <h1>Book a class with us</h1>
-          <h2>Trapeze Drop-In at Flighthouse</h2>
-            <h3>Class time-table to be announced soon</h3>
-            <p>Classes will be listed and available for booking soon. Watch this space.</p>
-            <iframe class="booking-iframe" src="https://bookwhen.com/flighthouse/iframe" frameborder="0" scrolling="yes" seamless="seamless"></iframe>
-            <br>
-            <h3>Other questions and enquiries</h3>
-            <p>Please use our contact form for all other questions and enquiries.</p>
-            <a href="contact.html" class="btn">Contact</a>
-        </div>
-      </section>
+      <div class="footer-credit">
+        &copy; <span id="year"></span> FlightHouse UK
+      </div>
 
-    </main>
-
-   <footer class="site-footer">
-  <div class="container footer-inner footer-inner-centered">
-
-    <div class="footer-brand">
-      <img
-        src="images/flighthouse.webp"
-        alt="FlightHouse"
-        class="footer-main-logo"
-      />
     </div>
+  </footer>
 
-    <div class="footer-logo-links">
-      <a href="https://www.stealthiscircus.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Steal This Circus">
-        <img src="images/stc_logo1.webp" alt="Steal This Circus" />
-      </a>
+  <script src="js/trapeze.js"></script>
+</body>
 
-      <a href="https://www.hippodromecircus.co.uk" target="_blank" rel="noopener noreferrer">
-        Hippodrome Circus
-      </a>
-
-      <a href="https://www.digitalflyingsquirrels.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Digital Flying Squirrels">
-        <img src="images/dfs_logo.webp" alt="Digital Flying Squirrels" />
-      </a>
-
-      <a href="https://www.instagram.com/flighthouseuk" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <img src="images/insta.webp" alt="Instagram" />
-      </a>
-    </div>
-
-    <div class="footer-credit">
-      &copy; <span id="year"></span> FlightHouse UK
-    </div>
-
-  </div>
-</footer>
-
-    <script src="js/trapeze.js"></script>
-  </body>
 </html>

@@ -535,3 +535,115 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 });
+
+// ==================================================
+// SUMMER CLASS PLAN POPUP
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const summerPlanModal =
+    document.getElementById("summer-plan-modal");
+
+  const openSummerPlanButton =
+    document.getElementById("open-summer-plan");
+
+  const closeSummerPlanButton =
+    document.getElementById("close-summer-plan");
+
+  const returnToBookingButton =
+    document.getElementById("close-summer-plan-button");
+
+  function openSummerPlanModal() {
+    if (!summerPlanModal) {
+      return;
+    }
+
+    summerPlanModal.classList.add("is-open");
+
+    summerPlanModal.setAttribute(
+      "aria-hidden",
+      "false"
+    );
+
+    document.body.classList.add(
+      "summer-plan-open"
+    );
+
+    window.setTimeout(() => {
+      if (closeSummerPlanButton) {
+        closeSummerPlanButton.focus();
+      }
+    }, 100);
+  }
+
+  function closeSummerPlanModal() {
+    if (!summerPlanModal) {
+      return;
+    }
+
+    summerPlanModal.classList.remove("is-open");
+
+    summerPlanModal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    document.body.classList.remove(
+      "summer-plan-open"
+    );
+
+    if (openSummerPlanButton) {
+      openSummerPlanButton.focus();
+    }
+  }
+
+  if (openSummerPlanButton) {
+    openSummerPlanButton.addEventListener(
+      "click",
+      openSummerPlanModal
+    );
+  }
+
+  if (closeSummerPlanButton) {
+    closeSummerPlanButton.addEventListener(
+      "click",
+      closeSummerPlanModal
+    );
+  }
+
+  if (returnToBookingButton) {
+    returnToBookingButton.addEventListener(
+      "click",
+      closeSummerPlanModal
+    );
+  }
+
+  if (summerPlanModal) {
+    summerPlanModal.addEventListener(
+      "click",
+      (event) => {
+        if (event.target === summerPlanModal) {
+          closeSummerPlanModal();
+        }
+      }
+    );
+  }
+
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      const modalIsOpen =
+        summerPlanModal &&
+        summerPlanModal.classList.contains(
+          "is-open"
+        );
+
+      if (
+        event.key === "Escape" &&
+        modalIsOpen
+      ) {
+        closeSummerPlanModal();
+      }
+    }
+  );
+});

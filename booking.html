@@ -5,31 +5,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Flying Trapeze Classes | FlightHouse UK</title>
-  <meta
-    name="description"
-    content="Book flying trapeze classes, beginner experiences, workshops and professional training sessions with FlightHouse UK in Great Yarmouth."
-  />
-  <meta
-    name="keywords"
-    content="Book Flying Trapeze, Flying Trapeze Booking, Flying Trapeze Experience UK, Circus Classes, Trapeze Workshop"
-  />
+  <meta name="description"
+    content="Book flying trapeze classes, beginner experiences, workshops and professional training sessions with FlightHouse UK in Great Yarmouth." />
+  <meta name="keywords"
+    content="Book Flying Trapeze, Flying Trapeze Booking, Flying Trapeze Experience UK, Circus Classes, Trapeze Workshop" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://flighthousetrapeze.co.uk/booking.html" />
   <meta property="og:title" content="Book Flying Trapeze Classes | FlightHouse UK" />
   <meta property="og:description" content="Reserve your place on flying trapeze classes and workshops." />
   <meta property="og:url" content="https://flighthousetrapeze.co.uk/booking.html" />
   <meta property="og:image" content="https://flighthousetrapeze.co.uk/images/flighthouse.webp" />
-  <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="preload" href="images/flighthouse.webp" as="image" />
   <link rel="stylesheet" href="styles/trapeze.css" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1SSRLQQVV4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-1SSRLQQVV4');
   </script>
-  <link rel="icon" href="/favicon.ico" sizes="any">    
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
@@ -66,29 +64,75 @@
   </header>
 
   <main id="main-content">
+
     <section class="booking-section">
+
       <div class="stage-panel booking-panel">
+
         <h1>Book a class with us</h1>
+
         <h2>Trapeze Drop-In at FlightHouse</h2>
-        <h3>Regular class time-table to be announced soon</h3>
-        <p>More classes will be listed and available for booking soon. Watch this space.</p>
+        <h3>Summer Class Plan</h3>
+        <p>
+          View our current summer timetable, then use the booking calendar
+          below to reserve your place.
+        </p>
+
+        <button type="button" class="btn summer-plan-trigger" id="open-summer-plan" aria-haspopup="dialog"
+          aria-controls="summer-plan-modal">
+          View Summer Class Plan
+        </button>
         <iframe class="booking-iframe" src="https://bookwhen.com/flighthouse/iframe" frameborder="0" scrolling="yes"
-          seamless="seamless"></iframe>
+          seamless="seamless" title="FlightHouse class booking calendar"></iframe>
         <div class="booking-fallback">
           <p>
-            Having trouble viewing the booking calendar?
+            Having trouble viewing the booking system?
           </p>
           <a href="https://bookwhen.com/flighthouse" target="_blank" rel="noopener noreferrer" class="btn booking-btn">
             Open Booking System
           </a>
         </div>
+
         <h3>Other questions and enquiries</h3>
-        <p>Please use our contact form for all other questions and enquiries.</p>
-        <a href="contact.html" class="btn">Contact</a>
+        <p>
+          Please use our contact form for all other questions and enquiries.
+        </p>
+        <a href="contact.html" class="btn">
+          Contact
+        </a>
       </div>
     </section>
-
   </main>
+
+  <!-- ========================================
+     SUMMER CLASS PLAN POPUP
+========================================= -->
+
+  <div class="summer-plan-modal" id="summer-plan-modal" role="dialog" aria-modal="true"
+    aria-labelledby="summer-plan-title" aria-hidden="true">
+    <div class="summer-plan-modal__panel" role="document">
+      <button type="button" class="summer-plan-modal__close" id="close-summer-plan"
+        aria-label="Close summer class plan">
+        &times;
+      </button>
+      <h2 id="summer-plan-title">
+        Summer Class Plan
+      </h2>
+      <p class="summer-plan-modal__intro">
+        Choose a suitable session, then close this timetable and book using
+        the calendar below.
+      </p>
+      <div class="summer-plan-modal__image-wrap">
+        <img src="images/summer_schedule26.png"
+          alt="FlightHouse summer class timetable showing flying trapeze classes from Monday to Sunday"
+          class="summer-plan-modal__image" />
+      </div>
+
+      <button type="button" class="btn summer-plan-modal__done" id="close-summer-plan-button">
+        Return to Booking
+      </button>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner footer-inner-centered">
@@ -104,7 +148,7 @@
         </a>
 
         <a href="https://www.hippodromecircus.co.uk" target="_blank" rel="noopener noreferrer">
-          <img src="images/hippodromelogo.webp" alt="The Hippodrome Circus" loading="lazy"/>
+          <img src="images/hippodromelogo.webp" alt="The Hippodrome Circus" loading="lazy" />
         </a>
 
         <a href="https://www.digitalflyingsquirrels.co.uk" target="_blank" rel="noopener noreferrer"

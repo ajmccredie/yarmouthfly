@@ -1809,3 +1809,75 @@ body.summer-plan-open {
     transition: none;
   }
 }
+
+/* BOOK NOW BUTTON IN DESKTOP AND MOBILE NAV */
+.site-nav .nav-book-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.65rem 1.25rem;
+  border-radius:999px;
+  background:linear-gradient(
+    rgba(127,16,40,.98),
+    rgba(91,8,27,.98)
+  );
+  color:#fff7f4;
+  box-shadow:0 7px 16px rgba(0,0,0,.24);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.site-nav .nav-book-btn::after{
+  display:none;
+}
+
+.site-nav .nav-book-btn:hover,
+.site-nav .nav-book-btn:focus-visible{
+  color:#fff;
+  background:linear-gradient(
+    rgba(95,11,29,.98),
+    rgba(68,6,20,.98)
+  );
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+/* Keep the mobile booking button neatly contained */
+@media (max-width:980px){
+  .site-nav .nav-book-btn{
+    width:auto;
+    min-width:180px;
+    margin:.35rem auto .6rem;
+    padding:.75rem 1.5rem;
+  }
+
+  .site-nav li:last-child{
+    width:100%;
+    display:flex;
+    justify-content:center;
+  }
+}
+
+/* HERO BOOKING BUTTON BELOW BUILDING IMAGE */
+.hero-book-cta{
+  display:flex;
+  justify-content:center;
+  margin:1.25rem 0 1.75rem;
+}
+
+.hero-book-cta .btn{
+  min-width:220px;
+}
+
+@media (max-width:640px){
+  .hero-book-cta{
+    margin:1rem 0 1.4rem;
+  }
+
+  .hero-book-cta .btn{
+    width:100%;
+    min-width:unset;
+  }
+}

@@ -191,6 +191,47 @@ faqItems.forEach((item) => {
   });
 });
 
+// ---------- OPEN CLASS LEVELS FROM INTERNAL CTA ----------
+const urlParams = new URLSearchParams(window.location.search);
+const requestedFaq = urlParams.get("open");
+
+if (
+  requestedFaq === "class-levels" &&
+  window.location.hash === "#class-levels"
+) {
+  const targetFaq = document.getElementById("class-levels");
+
+  if (targetFaq) {
+    const targetQuestion = targetFaq.querySelector(".faq-question");
+
+    // Close any FAQ that may already be open
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      item.classList.remove("is-open");
+
+      const question = item.querySelector(".faq-question");
+
+      if (question) {
+        question.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // Open the class-level section
+    targetFaq.classList.add("is-open");
+
+    if (targetQuestion) {
+      targetQuestion.setAttribute("aria-expanded", "true");
+    }
+
+    // Wait until the page has laid itself out, then scroll neatly into view
+    requestAnimationFrame(() => {
+      targetFaq.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    });
+  }
+}
+
 // ==================================================
 // MAILING LIST POPUP AND MAILCHIMP SUBMISSION
 // ==================================================
@@ -537,113 +578,83 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ==================================================
-// SUMMER CLASS PLAN POPUP
+// CLASS PLAN POPUPS
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const summerPlanModal =
-    document.getElementById("summer-plan-modal");
+  const scheduleModals = [
+    {
+      openButton: document.getElementById("open-summer-plan"),
+      modal: document.getElementById("summer-plan-modal"),
+      closeButton: document.getElementById("close-summer-plan"),
+      doneButton: document.getElementById("close-summer-plan-button"),
+    },
+    {
+      openButton: document.getElementById("open-september-plan"),
+      modal: document.getElementById("september-plan-modal"),
+      closeButton: document.getElementById("close-september-plan"),
+      doneButton: document.getElementById("close-september-plan-button"),
+    },
+  ];
 
-  const openSummerPlanButton =
-    document.getElementById("open-summer-plan");
+  function openScheduleModal(modal) {
+    if (!modal) return;
 
-  const closeSummerPlanButton =
-    document.getElementById("close-summer-plan");
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("summer-plan-open");
+  }
 
-  const returnToBookingButton =
-    document.getElementById("close-summer-plan-button");
+  function closeScheduleModal(modal) {
+    if (!modal) return;
 
-  function openSummerPlanModal() {
-    if (!summerPlanModal) {
-      return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+
+    const anyModalStillOpen = scheduleModals.some(
+      ({ modal }) => modal && modal.classList.contains("is-open")
+    );
+
+    if (!anyModalStillOpen) {
+      document.body.classList.remove("summer-plan-open");
     }
+  }
 
-    summerPlanModal.classList.add("is-open");
+  scheduleModals.forEach(
+    ({ openButton, modal, closeButton, doneButton }) => {
+      if (!modal) return;
 
-    summerPlanModal.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-    document.body.classList.add(
-      "summer-plan-open"
-    );
-
-    window.setTimeout(() => {
-      if (closeSummerPlanButton) {
-        closeSummerPlanButton.focus();
+      if (openButton) {
+        openButton.addEventListener("click", () => {
+          openScheduleModal(modal);
+        });
       }
-    }, 100);
-  }
 
-  function closeSummerPlanModal() {
-    if (!summerPlanModal) {
-      return;
-    }
+      if (closeButton) {
+        closeButton.addEventListener("click", () => {
+          closeScheduleModal(modal);
+        });
+      }
 
-    summerPlanModal.classList.remove("is-open");
+      if (doneButton) {
+        doneButton.addEventListener("click", () => {
+          closeScheduleModal(modal);
+        });
+      }
 
-    summerPlanModal.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-    document.body.classList.remove(
-      "summer-plan-open"
-    );
-
-    if (openSummerPlanButton) {
-      openSummerPlanButton.focus();
-    }
-  }
-
-  if (openSummerPlanButton) {
-    openSummerPlanButton.addEventListener(
-      "click",
-      openSummerPlanModal
-    );
-  }
-
-  if (closeSummerPlanButton) {
-    closeSummerPlanButton.addEventListener(
-      "click",
-      closeSummerPlanModal
-    );
-  }
-
-  if (returnToBookingButton) {
-    returnToBookingButton.addEventListener(
-      "click",
-      closeSummerPlanModal
-    );
-  }
-
-  if (summerPlanModal) {
-    summerPlanModal.addEventListener(
-      "click",
-      (event) => {
-        if (event.target === summerPlanModal) {
-          closeSummerPlanModal();
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          closeScheduleModal(modal);
         }
-      }
-    );
-  }
-
-  document.addEventListener(
-    "keydown",
-    (event) => {
-      const modalIsOpen =
-        summerPlanModal &&
-        summerPlanModal.classList.contains(
-          "is-open"
-        );
-
-      if (
-        event.key === "Escape" &&
-        modalIsOpen
-      ) {
-        closeSummerPlanModal();
-      }
+      });
     }
   );
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      scheduleModals.forEach(({ modal }) => {
+        closeScheduleModal(modal);
+      });
+    }
+  });
 });

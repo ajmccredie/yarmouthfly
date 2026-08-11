@@ -57,6 +57,7 @@
           <li><a href="heritage.html">Heritage</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="classes.html">Training</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li>
             <a href="booking.html" class="nav-book-btn">Book Now</a>
@@ -75,16 +76,31 @@
         <h1>Book a class with us</h1>
 
         <h2>Trapeze Drop-In at FlightHouse</h2>
-        <h3>Summer Class Plan</h3>
+        <a href="faqs.html?open=class-levels#class-levels" class="btn">
+          Information on Class Levels
+        </a>
+        <br>
+        <br>
+        <h3>Class Plan</h3>
         <p>
-          View our current summer timetable, then use the booking calendar
+          View our current timetables, then use the booking calendar
           below to reserve your place.
         </p>
+        <p>
+          Exciting guest workshops and other events are not shown on the regular timetable, ensure you stay up-to-date with our Instagram account and newsletter.
+        </p>
 
-        <button type="button" class="btn summer-plan-trigger" id="open-summer-plan" aria-haspopup="dialog"
-          aria-controls="summer-plan-modal">
-          View Summer Class Plan
-        </button>
+        <div class="schedule-button-group">
+          <button type="button" class="btn summer-plan-trigger" id="open-summer-plan" aria-haspopup="dialog"
+            aria-controls="summer-plan-modal">
+            View Summer Class Plan
+          </button>
+
+          <button type="button" class="btn september-plan-trigger" id="open-september-plan" aria-haspopup="dialog"
+            aria-controls="september-plan-modal">
+            View Early September Timetable
+          </button>
+        </div>
         <iframe class="booking-iframe" src="https://bookwhen.com/flighthouse/iframe" frameborder="0" scrolling="yes"
           seamless="seamless" title="FlightHouse class booking calendar"></iframe>
         <div class="booking-fallback">
@@ -134,6 +150,40 @@
       <button type="button" class="btn summer-plan-modal__done" id="close-summer-plan-button">
         Return to Booking
       </button>
+    </div>
+  </div>
+
+  <!-- ========================================
+     EARLY SEPTEMBER CLASS PLAN POPUP
+========================================= -->
+
+  <div class="summer-plan-modal" id="september-plan-modal" role="dialog" aria-modal="true"
+    aria-labelledby="september-plan-title" aria-hidden="true">
+    <div class="summer-plan-modal__panel" role="document">
+
+      <button type="button" class="summer-plan-modal__close" id="close-september-plan"
+        aria-label="Close early September class plan">
+        &times;
+      </button>
+
+      <h2 id="september-plan-title">
+        Early September Timetable
+      </h2>
+
+      <p class="summer-plan-modal__intro">
+        Choose a suitable session, then close this timetable and book using
+        the calendar below.
+      </p>
+
+      <div class="summer-plan-modal__image-wrap">
+        <img src="images/sept_schedule.png" alt="FlightHouse early September flying trapeze class timetable"
+          class="summer-plan-modal__image" />
+      </div>
+
+      <button type="button" class="btn summer-plan-modal__done" id="close-september-plan-button">
+        Return to Booking
+      </button>
+
     </div>
   </div>
 

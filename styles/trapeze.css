@@ -1881,3 +1881,204 @@ body.summer-plan-open {
     min-width:unset;
   }
 }
+
+/* ===== CLASS LEVEL GUIDE ===== */
+
+.class-level-guide{
+  margin:2.5rem 0 3rem;
+  scroll-margin-top:calc(var(--header-height) + 2rem);
+}
+
+.level-guide-heading{
+  text-align:center;
+  max-width:800px;
+  margin:0 auto 2rem;
+}
+
+.level-guide-heading p{
+  max-width:700px;
+  margin:0 auto;
+}
+
+.level-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:1.5rem;
+  align-items:start;
+}
+
+.level-card{
+  position:relative;
+  height:100%;
+  padding:2rem 1.5rem 1.5rem;
+  border-radius:20px;
+  background:rgba(244,241,234,.78);
+  border:1px solid rgba(42,33,29,.25);
+  box-shadow:0 10px 24px rgba(0,0,0,.14);
+  overflow:hidden;
+}
+
+.level-card::before{
+  content:"";
+  position:absolute;
+  inset:9px;
+  border:1px solid rgba(127,16,40,.22);
+  border-radius:15px;
+  pointer-events:none;
+}
+
+.level-card > *{
+  position:relative;
+  z-index:1;
+}
+
+.level-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:110px;
+  padding:.45rem 1rem;
+  margin-bottom:1.2rem;
+  border-radius:999px;
+  background:linear-gradient(
+    rgba(127,16,40,.98),
+    rgba(91,8,27,.98)
+  );
+  color:#fff7f4;
+  font-family:"BenchNine", sans-serif;
+  font-size:1.65rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  box-shadow:0 7px 16px rgba(0,0,0,.2);
+}
+
+.level-card h3{
+  margin-bottom:1rem;
+}
+
+.level-card p{
+  font-size:1.35rem;
+  line-height:1.5;
+}
+
+.level-guide-actions{
+  display:flex;
+  justify-content:center;
+  gap:1.25rem;
+  flex-wrap:wrap;
+  margin-top:2rem;
+}
+
+/* Tablet */
+@media (max-width:980px){
+  .level-grid{
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .level-card:last-child{
+    grid-column:1 / -1;
+  }
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .class-level-guide{
+    margin:2rem 0;
+  }
+
+  .level-grid{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+
+  .level-card:last-child{
+    grid-column:auto;
+  }
+
+  .level-card{
+    padding:1.5rem 1.2rem 1.2rem;
+  }
+
+  .level-card p{
+    font-size:1.2rem;
+  }
+
+  .level-number{
+    font-size:1.4rem;
+  }
+
+  .level-guide-actions{
+    flex-direction:column;
+    gap:1rem;
+  }
+
+  .level-guide-actions .btn{
+    width:100%;
+  }
+}
+
+/* ===== CLASS LEVELS INSIDE FAQ ACCORDION ===== */
+
+#class-levels{
+  scroll-margin-top:calc(var(--header-height) + 2rem);
+}
+
+#class-levels .faq-answer{
+  padding-top:0;
+}
+
+.level-intro{
+  margin:1.25rem 0 1.75rem;
+}
+
+#class-levels .level-grid{
+  margin:1rem 0 1.5rem;
+}
+
+#class-levels .level-card p{
+  max-width:none;
+}
+
+.level-guide-actions{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:1rem;
+  padding:1rem 0 .5rem;
+}
+
+@media (max-width:640px){
+
+  .level-guide-actions{
+    flex-direction:column;
+  }
+
+  .level-guide-actions .btn{
+    width:100%;
+  }
+}
+
+.schedule-button-group{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:1.5rem 0 2rem;
+}
+
+.schedule-button-group .btn{
+  flex:0 0 auto;
+}
+
+@media (max-width:640px){
+  .schedule-button-group{
+    flex-direction:column;
+    align-items:stretch;
+    gap:1rem;
+  }
+
+  .schedule-button-group .btn{
+    width:100%;
+  }
+}

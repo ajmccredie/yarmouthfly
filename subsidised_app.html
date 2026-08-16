@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlightHouse Trapeze Professional Development Programme Application</title>
+    <meta name="description" content="Apply for training and development with the trapeze school." />
+    <link
+        href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="preload" href="images/flighthouse.webp" as="image" />
+    <link rel="preload" href="images/radiatebg.webp" as="image">
+    <link rel="stylesheet" href="styles/trapeze.css" />
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+</head>
+
+<body class="bg-radiate">
+    <div class="theatre-seats" aria-hidden="true"></div>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <div class="brand-lockup">
+                    <img src="images/flighthouse.webp" alt="FlightHouse" class="brand-logo" />
+                    <span class="brand-subtitle">UK's Flying Trapeze Academy</span>
+                </div>
+            </a>
+
+            <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="site-nav" id="site-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="heritage.html">Heritage</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="classes.html">Training</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li>
+                        <a href="booking.html" class="nav-book-btn">Book Now</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="bursary-application-section">
+            <div class="bursary-form-container">
+
+                <div class="form-intro">
+                    <p class="eyebrow">FlightHouse Flying Trapeze</p>
+                    <h1>Application Questionnaire for Subsidised Flying Opportunities</h1>
+
+                    <p>
+                        This application is used for the under-25s youth development programme,
+                        professional development workshop programme, and individual training bursaries.
+                    </p>
+
+                    <p>
+                        Applicants under 16 must have parental or guardian input. The application
+                        should still be completed from the applicant's point of view.
+                    </p>
+
+                    <p class="required-note">
+                        Fields marked <span aria-hidden="true">*</span> are required.
+                    </p>
+                </div>
+
+
+                <form action="https://formspree.io/f/moeanogn" method="POST" class="bursary-form">
+
+                    <!-- Optional Formspree subject -->
+                    <input type="hidden" name="_subject" value="New subsidised flying application">
+
+
+                    <!-- =========================================================
+           SECTION 1: APPLICANT DETAILS
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>1. Applicant details</legend>
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="applicant-name">
+                                    Applicant name <span>*</span>
+                                </label>
+                                <input type="text" id="applicant-name" name="Applicant name" autocomplete="name"
+                                    required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">
+                                    Age <span>*</span>
+                                </label>
+                                <input type="number" id="age" name="Age" min="1" max="100" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="postcode">
+                                    Postcode <span>*</span>
+                                </label>
+                                <input type="text" id="postcode" name="Postcode" autocomplete="postal-code" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    Email address <span>*</span>
+                                </label>
+                                <input type="email" id="email" name="Email address" autocomplete="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">
+                                    Phone number
+                                </label>
+                                <input type="tel" id="phone" name="Phone number" autocomplete="tel">
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="parent-contact">
+                                Parent/guardian name and contact details
+                            </label>
+
+                            <p class="field-help">
+                                Please complete this if the applicant is under 16.
+                            </p>
+
+                            <textarea id="parent-contact" name="Parent or guardian details" rows="3"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 2: EXISTING PAID ACTIVITIES
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>2. Regular sports or training costs</legend>
+
+                        <p class="question">
+                            Do you currently pay for any regular sports activities, training or memberships?
+                        </p>
+
+                        <p class="field-help">
+                            This might include gym membership, sports classes, circus training,
+                            dance classes, coaching or similar activities.
+                        </p>
+
+                        <div class="choice-group">
+                            <label>
+                                <input type="radio" name="Pays for regular sports or training" value="Yes" required>
+                                Yes
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Pays for regular sports or training" value="No">
+                                No
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sports-costs">
+                                If yes, please tell us what you currently pay for and approximately how much it costs
+                                per week.
+                            </label>
+
+                            <textarea id="sports-costs" name="Regular sports or training details and weekly cost"
+                                rows="4"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 3: OTHER FUNDING
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>3. Existing bursaries or funding</legend>
+
+                        <p class="question">
+                            Do you currently receive any bursaries, grants, discounts or other
+                            funding towards training opportunities?
+                        </p>
+
+                        <p class="field-help">
+                            For example: subsidised circus training, personal grants, funded
+                            training, or reduced class rates due to financial circumstances.
+                        </p>
+
+                        <div class="choice-group">
+                            <label>
+                                <input type="radio" name="Receives other bursaries or funding" value="Yes" required>
+                                Yes
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Receives other bursaries or funding" value="No">
+                                No
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="funding-details">
+                                If yes, please provide details.
+                            </label>
+
+                            <textarea id="funding-details" name="Existing bursary grant or funding details"
+                                rows="4"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 4: EMPLOYMENT / OCCUPATION
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>4. Employment or occupation status</legend>
+
+                        <p class="question">
+                            What is your current employment or occupation status?
+                        </p>
+
+                        <p class="field-help">
+                            If you are over 18, please answer for yourself. If you are under 18,
+                            please answer based on the highest earner in your household.
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Employed full-time (30+ hours per week)" required>
+                                Employed full-time (30+ hours per week)
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Employed part-time (under 30 hours per week)">
+                                Employed part-time (under 30 hours per week)
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Self-employed or freelance">
+                                Self-employed or freelance
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Unemployed and actively looking for work">
+                                Unemployed and actively looking for work
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Unemployed due to illness or disability">
+                                Unemployed due to illness or disability (unable to work)
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Full-time student or apprenticeship">
+                                Full-time student or in an apprenticeship
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status" value="Retired">
+                                Retired
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Full-time carer or looking after the home">
+                                Full-time carer or looking after the home
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status"
+                                    value="Other / Prefer not to say">
+                                Other / Prefer not to say
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Employment or occupation status" value="Does not apply">
+                                Does not apply
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="employment-other">
+                                If useful, please provide any additional information.
+                            </label>
+
+                            <textarea id="employment-other" name="Employment additional information"
+                                rows="3"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 5: LIVING ARRANGEMENT
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>5. Living arrangement</legend>
+
+                        <p class="question">
+                            How would you describe your current living arrangement?
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="radio" name="Living arrangement"
+                                    value="Living with parents step-parents or guardians" required>
+                                I live with my parents, step-parents or guardians
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Living arrangement" value="Living independently">
+                                I live independently (renting, student accommodation or owning a home)
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Living arrangement"
+                                    value="Supported housing foster care or care leaver">
+                                I live in supported housing, foster care, or am a care leaver
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Living arrangement" value="No permanent address">
+                                I do not have a permanent address right now
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Living arrangement" value="Other / Prefer not to say">
+                                Other / Prefer not to say
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="living-other">
+                                Additional information, if you would like to provide it
+                            </label>
+
+                            <textarea id="living-other" name="Living arrangement additional information"
+                                rows="3"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 6: CARING RESPONSIBILITIES
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>6. Children and caring responsibilities</legend>
+
+                        <p class="question">
+                            Do you have any children or regular caring responsibilities?
+                            Select all that apply.
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="checkbox" name="Caring responsibilities[]"
+                                    value="Parent or legal guardian of child or children under 18">
+                                Yes, I am a parent or legal guardian to a child/children under 18
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Caring responsibilities[]" value="Young Carer">
+                                Yes, I am a Young Carer and regularly look after a family member
+                                who is ill, disabled or elderly
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Caring responsibilities[]"
+                                    value="No caring responsibilities">
+                                No, I do not have children or caring responsibilities
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Caring responsibilities[]" value="Prefer not to say">
+                                Prefer not to say
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="caring-details">
+                                Please provide any information you feel is relevant.
+                            </label>
+
+                            <textarea id="caring-details" name="Caring responsibilities additional information"
+                                rows="4"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 7: INCOME-RELATED BENEFITS
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>7. Income-related benefits</legend>
+
+                        <p class="question">
+                            Do you, or your parents/guardians if you live with them, receive any
+                            of the following? Select all that apply.
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]"
+                                    value="Free School Meals or College Bursary">
+                                Free School Meals (FSM) or College Bursary
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]" value="Universal Credit">
+                                Universal Credit
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]" value="Jobseekers Allowance">
+                                Jobseeker's Allowance (JSA)
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]"
+                                    value="Employment and Support Allowance">
+                                Employment and Support Allowance (ESA)
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]" value="Housing Benefit">
+                                Housing Benefit
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]" value="None of the above">
+                                None of the above
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Income related benefits[]" value="Prefer not to say">
+                                Prefer not to say
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 8: HEALTH / DISABILITY / LIVING SUPPORT
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>8. Health, disability or living support</legend>
+
+                        <p class="question">
+                            Do you receive any of the following benefits or forms of support?
+                            Select all that apply.
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]" value="PIP or DLA">
+                                Personal Independence Payment (PIP) or Disability Living Allowance (DLA)
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]"
+                                    value="Attendance Allowance">
+                                Attendance Allowance
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]"
+                                    value="Carers Allowance">
+                                Carer's Allowance
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]"
+                                    value="Council Tax Reduction or Support">
+                                Council Tax Reduction / Support
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]"
+                                    value="Universal Credit Disability Element">
+                                Universal Credit Disability Element
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]"
+                                    value="None of the above">
+                                None of the above
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Health disability or living support[]"
+                                    value="Prefer not to say">
+                                Prefer not to say
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 9: HIGHER EDUCATION FUNDING
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>9. Higher education funding</legend>
+
+                        <p class="question">
+                            If you are in higher education, do you receive an educational grant,
+                            maintenance grant or similar financial support?
+                        </p>
+
+                        <div class="choice-group">
+
+                            <label>
+                                <input type="radio" name="Higher education grant" value="Yes">
+                                Yes
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Higher education grant" value="No">
+                                No
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Higher education grant" value="Not applicable">
+                                Not applicable
+                            </label>
+
+                            <label>
+                                <input type="radio" name="Higher education grant" value="Prefer not to say">
+                                Prefer not to say
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="education-grant-details">
+                                If yes, please specify.
+                            </label>
+
+                            <textarea id="education-grant-details" name="Higher education grant details"
+                                rows="3"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 10: SUPPORT SERVICES
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>10. Contact with support or justice services</legend>
+
+                        <p class="question">
+                            Have you ever had contact with, or support from, any of the following
+                            services? Select all that apply.
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="checkbox" name="Support or justice services[]"
+                                    value="Youth Offending Team or Youth Justice Service">
+                                Youth Offending Team (YOT) or Youth Justice Service
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Support or justice services[]"
+                                    value="Police community diversion scheme youth caution or warning">
+                                The Police via a community diversion scheme, youth caution or warning
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Support or justice services[]"
+                                    value="Probation Services or youth justice worker">
+                                Probation Services or a youth justice worker
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Support or justice services[]" value="None of the above">
+                                None of the above
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Support or justice services[]" value="Prefer not to say">
+                                Prefer not to say
+                            </label>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           SECTION 11: CURRENT CIRCUMSTANCES
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>11. Current circumstances</legend>
+
+                        <p class="question">
+                            Do any of the following statements apply to your current situation?
+                            Select all that apply.
+                        </p>
+
+                        <div class="choice-group choice-stack">
+
+                            <label>
+                                <input type="checkbox" name="Current circumstances[]"
+                                    value="Excluded from mainstream school or Alternative Provision">
+                                I am currently, or have previously been, permanently excluded from
+                                mainstream school, or I attend an Alternative Provision / Pupil
+                                Referral Unit (PRU)
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Current circumstances[]" value="Care experienced">
+                                I am currently in care, looked after by the local authority, or am a care leaver
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Current circumstances[]"
+                                    value="Social Worker Family Support or Early Help plan">
+                                I have a designated Social Worker or an active Family Support / Early Help plan
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Current circumstances[]" value="NEET aged 16 to 25">
+                                I am aged 16–25 and not currently studying or working (NEET)
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Current circumstances[]" value="None of the above">
+                                None of the above
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="Current circumstances[]" value="Prefer not to say">
+                                Prefer not to say
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="circumstances-details">
+                                Is there anything else about your circumstances that you would
+                                like us to take into account?
+                            </label>
+
+                            <textarea id="circumstances-details" name="Additional circumstances" rows="5"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           ADDITIONAL APPLICATION INFORMATION
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>12. Your application</legend>
+
+                        <div class="form-group">
+                            <label for="opportunity">
+                                Which subsidised opportunity are you applying for?
+                                <span>*</span>
+                            </label>
+
+                            <select id="opportunity" name="Opportunity applied for" required>
+                                <option value="">Please choose</option>
+                                <option value="Under 25s Youth Development Programme">
+                                    Under-25s Youth Development Programme
+                                </option>
+                                <option value="Professional Development Workshop Programme">
+                                    Professional Development Workshop Programme
+                                </option>
+                                <option value="Individual Training Bursary">
+                                    Individual Training Bursary
+                                </option>
+                                <option value="Not sure">
+                                    I'm not sure which opportunity is most appropriate
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="why-applying">
+                                Please tell us why you are applying for subsidised training.
+                                <span>*</span>
+                            </label>
+
+                            <textarea id="why-applying" name="Reason for applying" rows="6" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="flying-goals">
+                                What would you like to gain from the opportunity?
+                            </label>
+
+                            <textarea id="flying-goals" name="Training goals" rows="6"></textarea>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- =========================================================
+           DECLARATION
+      ========================================================== -->
+
+                    <fieldset>
+                        <legend>Declaration</legend>
+
+                        <div class="consent-box">
+
+                            <label>
+                                <input type="checkbox" name="Declaration" value="Confirmed" required>
+
+                                <span>
+                                    I confirm that the information given in this application is true
+                                    to the best of my knowledge. I understand that FlightHouse may
+                                    use this information to assess eligibility for subsidised training.
+                                    <strong>*</strong>
+                                </span>
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="completed-by">
+                                Name of person completing the form <span>*</span>
+                            </label>
+
+                            <input type="text" id="completed-by" name="Name of person completing form" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="relationship">
+                                Relationship to applicant
+                            </label>
+
+                            <select id="relationship" name="Relationship to applicant">
+                                <option value="">Please choose</option>
+                                <option value="Applicant">I am the applicant</option>
+                                <option value="Parent">Parent</option>
+                                <option value="Guardian">Guardian</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                    </fieldset>
+
+
+                    <!-- Honeypot spam protection -->
+                    <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off"
+                        aria-hidden="true">
+
+
+                    <div class="form-submit">
+                        <button type="submit" class="primary-form-button">
+                            Submit application
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner footer-inner-centered">
+
+            <div class="footer-brand">
+                <img src="images/flighthouse.webp" alt="FlightHouse" class="footer-main-logo" />
+            </div>
+
+            <div class="footer-logo-links">
+                <a href="https://www.stealthiscircus.co.uk" target="_blank" rel="noopener noreferrer"
+                    aria-label="Steal This Circus">
+                    <img src="images/stc_logo1.webp" alt="Steal This Circus" />
+                </a>
+
+                <a href="https://www.hippodromecircus.co.uk" target="_blank" rel="noopener noreferrer">
+                    <img src="images/hippodromelogo.webp" alt="The Hippodrome Circus" loading="lazy" />
+                </a>
+
+                <a href="https://www.digitalflyingsquirrels.co.uk" target="_blank" rel="noopener noreferrer"
+                    aria-label="Digital Flying Squirrels">
+                    <img src="images/dfs_logo.webp" alt="Digital Flying Squirrels" />
+                </a>
+
+                <a href="https://www.instagram.com/flighthousetrapeze" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <img src="images/insta.webp" alt="Instagram" />
+                </a>
+            </div>
+
+            <div class="footer-credit">
+                &copy; <span id="year"></span> FlightHouse UK
+            </div>
+
+        </div>
+    </footer>
+
+    <div class="form-popup" id="form-popup" aria-hidden="true">
+        <div class="form-popup-inner">
+            <button class="popup-close" id="popup-close" aria-label="Close popup">
+                &times;
+            </button>
+
+            <h2>Application Received</h2>
+
+            <p>
+                Thank you for applying to FlightHouse.
+            </p>
+
+            <p>
+                Your application has been submitted successfully and we’ll get back to you soon.
+            </p>
+
+            <button class="btn popup-btn" id="popup-button">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script src="js/trapeze.js"></script>
+</body>
+
+</html>

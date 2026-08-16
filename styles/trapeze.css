@@ -1634,11 +1634,9 @@ body.newsletter-open {
   color: #f8eee2;
 
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       rgba(43, 31, 27, 0.99),
-      rgba(17, 12, 11, 0.99)
-    );
+      rgba(17, 12, 11, 0.99));
 
   border: 2px solid var(--gold);
   border-radius: 22px;
@@ -1773,9 +1771,7 @@ body.summer-plan-open {
     margin: auto 0;
 
     padding:
-      3.5rem
-      0.75rem
-      1.25rem;
+      3.5rem 0.75rem 1.25rem;
 
     border-radius: 16px;
   }
@@ -1803,6 +1799,7 @@ body.summer-plan-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .summer-plan-modal,
   .summer-plan-modal__panel,
   .summer-plan-modal__close {
@@ -1811,274 +1808,958 @@ body.summer-plan-open {
 }
 
 /* BOOK NOW BUTTON IN DESKTOP AND MOBILE NAV */
-.site-nav .nav-book-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:.65rem 1.25rem;
-  border-radius:999px;
-  background:linear-gradient(
-    rgba(127,16,40,.98),
-    rgba(91,8,27,.98)
-  );
-  color:#fff7f4;
-  box-shadow:0 7px 16px rgba(0,0,0,.24);
+.site-nav .nav-book-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .65rem 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(rgba(127, 16, 40, .98),
+      rgba(91, 8, 27, .98));
+  color: #fff7f4;
+  box-shadow: 0 7px 16px rgba(0, 0, 0, .24);
   transition:
     transform .2s ease,
     box-shadow .2s ease,
     background .2s ease;
 }
 
-.site-nav .nav-book-btn::after{
-  display:none;
+.site-nav .nav-book-btn::after {
+  display: none;
 }
 
 .site-nav .nav-book-btn:hover,
-.site-nav .nav-book-btn:focus-visible{
-  color:#fff;
-  background:linear-gradient(
-    rgba(95,11,29,.98),
-    rgba(68,6,20,.98)
-  );
-  transform:translateY(-2px);
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
+.site-nav .nav-book-btn:focus-visible {
+  color: #fff;
+  background: linear-gradient(rgba(95, 11, 29, .98),
+      rgba(68, 6, 20, .98));
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
 }
 
 /* Keep the mobile booking button neatly contained */
-@media (max-width:980px){
-  .site-nav .nav-book-btn{
-    width:auto;
-    min-width:180px;
-    margin:.35rem auto .6rem;
-    padding:.75rem 1.5rem;
+@media (max-width:980px) {
+  .site-nav .nav-book-btn {
+    width: auto;
+    min-width: 180px;
+    margin: .35rem auto .6rem;
+    padding: .75rem 1.5rem;
   }
 
-  .site-nav li:last-child{
-    width:100%;
-    display:flex;
-    justify-content:center;
+  .site-nav li:last-child {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
 /* HERO BOOKING BUTTON BELOW BUILDING IMAGE */
-.hero-book-cta{
-  display:flex;
-  justify-content:center;
-  margin:1.25rem 0 1.75rem;
+.hero-book-cta {
+  display: flex;
+  justify-content: center;
+  margin: 1.25rem 0 1.75rem;
 }
 
-.hero-book-cta .btn{
-  min-width:220px;
+.hero-book-cta .btn {
+  min-width: 220px;
 }
 
-@media (max-width:640px){
-  .hero-book-cta{
-    margin:1rem 0 1.4rem;
+@media (max-width:640px) {
+  .hero-book-cta {
+    margin: 1rem 0 1.4rem;
   }
 
-  .hero-book-cta .btn{
-    width:100%;
-    min-width:unset;
+  .hero-book-cta .btn {
+    width: 100%;
+    min-width: unset;
   }
 }
 
 /* ===== CLASS LEVEL GUIDE ===== */
 
-.class-level-guide{
-  margin:2.5rem 0 3rem;
-  scroll-margin-top:calc(var(--header-height) + 2rem);
+.class-level-guide {
+  margin: 2.5rem 0 3rem;
+  scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
-.level-guide-heading{
-  text-align:center;
-  max-width:800px;
-  margin:0 auto 2rem;
+.level-guide-heading {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
 }
 
-.level-guide-heading p{
-  max-width:700px;
-  margin:0 auto;
+.level-guide-heading p {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.level-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:1.5rem;
-  align-items:start;
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
 }
 
-.level-card{
-  position:relative;
-  height:100%;
-  padding:2rem 1.5rem 1.5rem;
-  border-radius:20px;
-  background:rgba(244,241,234,.78);
-  border:1px solid rgba(42,33,29,.25);
-  box-shadow:0 10px 24px rgba(0,0,0,.14);
-  overflow:hidden;
+.level-card {
+  position: relative;
+  height: 100%;
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 20px;
+  background: rgba(244, 241, 234, .78);
+  border: 1px solid rgba(42, 33, 29, .25);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .14);
+  overflow: hidden;
 }
 
-.level-card::before{
-  content:"";
-  position:absolute;
-  inset:9px;
-  border:1px solid rgba(127,16,40,.22);
-  border-radius:15px;
-  pointer-events:none;
+.level-card::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(127, 16, 40, .22);
+  border-radius: 15px;
+  pointer-events: none;
 }
 
-.level-card > *{
-  position:relative;
-  z-index:1;
+.level-card>* {
+  position: relative;
+  z-index: 1;
 }
 
-.level-number{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:110px;
-  padding:.45rem 1rem;
-  margin-bottom:1.2rem;
-  border-radius:999px;
-  background:linear-gradient(
-    rgba(127,16,40,.98),
-    rgba(91,8,27,.98)
-  );
-  color:#fff7f4;
-  font-family:"BenchNine", sans-serif;
-  font-size:1.65rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  box-shadow:0 7px 16px rgba(0,0,0,.2);
+.level-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: .45rem 1rem;
+  margin-bottom: 1.2rem;
+  border-radius: 999px;
+  background: linear-gradient(rgba(127, 16, 40, .98),
+      rgba(91, 8, 27, .98));
+  color: #fff7f4;
+  font-family: "BenchNine", sans-serif;
+  font-size: 1.65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  box-shadow: 0 7px 16px rgba(0, 0, 0, .2);
 }
 
-.level-card h3{
-  margin-bottom:1rem;
+.level-card h3 {
+  margin-bottom: 1rem;
 }
 
-.level-card p{
-  font-size:1.35rem;
-  line-height:1.5;
+.level-card p {
+  font-size: 1.35rem;
+  line-height: 1.5;
 }
 
-.level-guide-actions{
-  display:flex;
-  justify-content:center;
-  gap:1.25rem;
-  flex-wrap:wrap;
-  margin-top:2rem;
+.level-guide-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 /* Tablet */
-@media (max-width:980px){
-  .level-grid{
-    grid-template-columns:repeat(2, minmax(0, 1fr));
+@media (max-width:980px) {
+  .level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .level-card:last-child{
-    grid-column:1 / -1;
+  .level-card:last-child {
+    grid-column: 1 / -1;
   }
 }
 
 /* Mobile */
-@media (max-width:640px){
-  .class-level-guide{
-    margin:2rem 0;
+@media (max-width:640px) {
+  .class-level-guide {
+    margin: 2rem 0;
   }
 
-  .level-grid{
-    grid-template-columns:1fr;
-    gap:1rem;
+  .level-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .level-card:last-child{
-    grid-column:auto;
+  .level-card:last-child {
+    grid-column: auto;
   }
 
-  .level-card{
-    padding:1.5rem 1.2rem 1.2rem;
+  .level-card {
+    padding: 1.5rem 1.2rem 1.2rem;
   }
 
-  .level-card p{
-    font-size:1.2rem;
+  .level-card p {
+    font-size: 1.2rem;
   }
 
-  .level-number{
-    font-size:1.4rem;
+  .level-number {
+    font-size: 1.4rem;
   }
 
-  .level-guide-actions{
-    flex-direction:column;
-    gap:1rem;
+  .level-guide-actions {
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .level-guide-actions .btn{
-    width:100%;
+  .level-guide-actions .btn {
+    width: 100%;
   }
 }
 
 /* ===== CLASS LEVELS INSIDE FAQ ACCORDION ===== */
 
-#class-levels{
-  scroll-margin-top:calc(var(--header-height) + 2rem);
+#class-levels {
+  scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
-#class-levels .faq-answer{
-  padding-top:0;
+#class-levels .faq-answer {
+  padding-top: 0;
 }
 
-.level-intro{
-  margin:1.25rem 0 1.75rem;
+.level-intro {
+  margin: 1.25rem 0 1.75rem;
 }
 
-#class-levels .level-grid{
-  margin:1rem 0 1.5rem;
+#class-levels .level-grid {
+  margin: 1rem 0 1.5rem;
 }
 
-#class-levels .level-card p{
-  max-width:none;
+#class-levels .level-card p {
+  max-width: none;
 }
 
-.level-guide-actions{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:1rem;
-  padding:1rem 0 .5rem;
+.level-guide-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0 .5rem;
 }
 
-@media (max-width:640px){
+@media (max-width:640px) {
 
-  .level-guide-actions{
-    flex-direction:column;
+  .level-guide-actions {
+    flex-direction: column;
   }
 
-  .level-guide-actions .btn{
-    width:100%;
+  .level-guide-actions .btn {
+    width: 100%;
   }
 }
 
-.schedule-button-group{
-  display:flex;
-  gap:1rem;
-  align-items:center;
-  flex-wrap:wrap;
-  margin:1.5rem 0 2rem;
+.schedule-button-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1.5rem 0 2rem;
 }
 
-.schedule-button-group .btn{
-  flex:0 0 auto;
+.schedule-button-group .btn {
+  flex: 0 0 auto;
 }
 
-@media (max-width:640px){
-  .schedule-button-group{
-    flex-direction:column;
-    align-items:stretch;
-    gap:1rem;
+@media (max-width:640px) {
+  .schedule-button-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
   }
 
-  .schedule-button-group .btn{
-    width:100%;
+  .schedule-button-group .btn {
+    width: 100%;
   }
+}
+
+/* ==================================================
+   SUBSIDISED FLYING / BURSARY APPLICATION FORM
+================================================== */
+
+.bursary-application-section {
+  width: 100%;
+  padding: 1rem 0 4rem;
+}
+
+.bursary-form-container {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+}
+
+
+/* ==================================================
+   INTRODUCTION
+================================================== */
+
+.form-intro {
+  position: relative;
+  margin: 2rem 0 2.5rem;
+  padding: clamp(1.6rem, 4vw, 2.5rem);
+
+  background: linear-gradient(rgba(235, 228, 217, .82),
+      rgba(235, 228, 217, .76));
+
+  border: 1px solid rgba(255, 255, 255, .3);
+  border-radius: 22px;
+
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(4px);
+
+  overflow: hidden;
+}
+
+
+/* Inner vintage-paper border */
+.form-intro::before {
+  content: "";
+  position: absolute;
+  inset: 11px;
+
+  border: 1px solid var(--paper-line);
+  border-radius: 17px;
+
+  opacity: .42;
+  pointer-events: none;
+}
+
+.form-intro>* {
+  position: relative;
+  z-index: 1;
+}
+
+
+.form-intro h1 {
+  max-width: 850px;
+  margin-bottom: 1.3rem;
+}
+
+
+.form-intro p {
+  max-width: 760px;
+}
+
+
+.form-intro .eyebrow {
+  margin: 0 0 .65rem;
+
+  color: var(--button);
+
+  font-family: "BenchNine", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+
+  letter-spacing: .12em;
+  line-height: 1;
+
+  text-transform: uppercase;
+}
+
+
+.required-note {
+  margin-top: 1.4rem;
+
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  color: var(--muted);
+}
+
+
+.required-note span,
+.bursary-form label>span {
+  color: var(--button);
+}
+
+
+/* ==================================================
+   MAIN FORM
+================================================== */
+
+.bursary-form {
+  display: grid;
+  gap: 1.5rem;
+
+  margin-top: 0;
+}
+
+
+/* Each question section appears as its own paper card */
+.bursary-form fieldset {
+  position: relative;
+
+  min-width: 0;
+  margin: 0;
+  padding: clamp(1.5rem, 4vw, 2.3rem);
+
+  background: rgba(244, 241, 234, .82);
+
+  border: 1px solid rgba(42, 33, 29, .25);
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, .14);
+
+  overflow: hidden;
+}
+
+
+/* Decorative inner border */
+.bursary-form fieldset::before {
+  content: "";
+  position: absolute;
+
+  inset: 9px;
+
+  border: 1px solid rgba(127, 16, 40, .18);
+  border-radius: 15px;
+
+  pointer-events: none;
+}
+
+
+.bursary-form fieldset>* {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Section title */
+.bursary-form legend {
+  position: relative;
+  z-index: 2;
+
+  padding: .45rem 1.1rem;
+  margin-left: .4rem;
+
+  color: #fff7f4;
+
+  background: linear-gradient(rgba(127, 16, 40, .98),
+      rgba(91, 8, 27, .98));
+
+  border-radius: 999px;
+
+  font-family: "BenchNine", sans-serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 700;
+
+  letter-spacing: .07em;
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, .18);
+}
+
+
+/* ==================================================
+   QUESTION COPY
+================================================== */
+
+.bursary-form .question {
+  max-width: 760px;
+
+  margin: .5rem 0 .35rem;
+
+  color: var(--ink);
+
+  font-size: clamp(1.4rem, 1.7vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+
+.bursary-form .field-help {
+  max-width: 720px;
+
+  margin: 0 0 1rem;
+
+  color: var(--muted);
+
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+
+/* ==================================================
+   TEXT INPUT LAYOUT
+================================================== */
+
+.bursary-form .form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1rem 1.4rem;
+}
+
+
+.bursary-form .form-group {
+  margin: 1rem 0;
+}
+
+
+.bursary-form .form-group label {
+  margin-bottom: .4rem;
+
+  color: var(--ink);
+
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+
+/* Keep the site's existing input style,
+   just slightly refine it for this longer form */
+.bursary-form input[type="text"],
+.bursary-form input[type="email"],
+.bursary-form input[type="tel"],
+.bursary-form input[type="number"],
+.bursary-form select,
+.bursary-form textarea {
+
+  background: rgba(255, 255, 255, .9);
+
+  border-color: rgba(42, 33, 29, .18);
+
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, .04);
+}
+
+
+.bursary-form input[type="text"]:hover,
+.bursary-form input[type="email"]:hover,
+.bursary-form input[type="tel"]:hover,
+.bursary-form input[type="number"]:hover,
+.bursary-form select:hover,
+.bursary-form textarea:hover {
+
+  border-color: rgba(127, 16, 40, .38);
+}
+
+
+.bursary-form input:focus,
+.bursary-form select:focus,
+.bursary-form textarea:focus {
+
+  border-color: var(--button);
+
+  box-shadow:
+    0 0 0 4px rgba(127, 16, 40, .10);
+
+  background: #fff;
+}
+
+
+/* Make select boxes feel consistent */
+.bursary-form select {
+  min-height: 58px;
+  cursor: pointer;
+}
+
+
+.bursary-form textarea {
+  min-height: 120px;
+  line-height: 1.4;
+}
+
+
+/* ==================================================
+   RADIO BUTTONS + CHECKBOXES
+================================================== */
+
+.bursary-form .choice-group {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: .7rem 1rem;
+
+  margin: 1.1rem 0 1.5rem;
+}
+
+
+.bursary-form .choice-stack {
+  flex-direction: column;
+  align-items: stretch;
+
+  gap: .65rem;
+}
+
+
+/* Turn each choice into a subtle clickable card */
+.bursary-form .choice-group label {
+  display: flex;
+  align-items: flex-start;
+
+  gap: .75rem;
+
+  max-width: 100%;
+
+  margin: 0;
+  padding: .7rem .9rem;
+
+  background: rgba(255, 255, 255, .38);
+
+  border: 1px solid rgba(42, 33, 29, .14);
+  border-radius: 12px;
+
+  color: var(--ink);
+
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  line-height: 1.35;
+
+  cursor: pointer;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    transform .18s ease;
+}
+
+
+.bursary-form .choice-group label:hover {
+  background: rgba(255, 255, 255, .7);
+
+  border-color: rgba(127, 16, 40, .3);
+
+  transform: translateY(-1px);
+}
+
+
+/* Undo the global width:100% applied to form inputs */
+.bursary-form input[type="radio"],
+.bursary-form input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+
+  flex: 0 0 1.15rem;
+
+  margin: .18rem 0 0;
+  padding: 0;
+
+  accent-color: var(--button);
+
+  cursor: pointer;
+}
+
+
+/* Selected choice gets a subtle burgundy cue */
+.bursary-form .choice-group label:has(input:checked) {
+  background: rgba(127, 16, 40, .08);
+
+  border-color: rgba(127, 16, 40, .45);
+}
+
+
+/* Keyboard focus */
+.bursary-form input[type="radio"]:focus-visible,
+.bursary-form input[type="checkbox"]:focus-visible {
+  outline: 3px solid rgba(127, 16, 40, .25);
+  outline-offset: 3px;
+}
+
+
+/* ==================================================
+   DECLARATION
+================================================== */
+
+.bursary-form .consent-box {
+  margin: 1rem 0 1.4rem;
+  padding: 1.2rem 1.3rem;
+
+  background: rgba(215, 187, 132, .18);
+
+  border: 1px solid rgba(159, 124, 71, .32);
+  border-radius: 14px;
+}
+
+
+.bursary-form .consent-box label {
+  display: flex;
+  align-items: flex-start;
+
+  gap: .85rem;
+
+  margin: 0;
+
+  font-size: 1.25rem;
+  line-height: 1.4;
+
+  cursor: pointer;
+}
+
+
+.bursary-form .consent-box input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  flex: 0 0 1.2rem;
+
+  margin-top: .2rem;
+
+  accent-color: var(--button);
+}
+
+
+/* ==================================================
+   SUBMIT BUTTON
+================================================== */
+
+.bursary-form .form-submit {
+  display: flex;
+
+  justify-content: center;
+
+  margin: .5rem 0 2rem;
+}
+
+
+.bursary-form .primary-form-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 300px;
+  min-height: 62px;
+
+  padding: .75rem 2rem;
+
+  color: #fff7f4;
+
+  background: linear-gradient(rgba(127, 16, 40, .98),
+      rgba(91, 8, 27, .98));
+
+  border: 0;
+  border-radius: 999px;
+
+  font-family: "BenchNine", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, .24);
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    box-shadow .18s ease;
+}
+
+
+.bursary-form .primary-form-button:hover,
+.bursary-form .primary-form-button:focus-visible {
+
+  background: linear-gradient(rgba(95, 11, 29, .98),
+      rgba(68, 6, 20, .98));
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 24px rgba(0, 0, 0, .28);
+}
+
+
+.bursary-form .primary-form-button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 4px;
+}
+
+
+.bursary-form .primary-form-button:active {
+  transform: translateY(0);
+}
+
+
+/* ==================================================
+   FORMSPREE SPAM TRAP
+================================================== */
+
+.bursary-form .form-honeypot {
+  position: absolute !important;
+
+  left: -9999px !important;
+
+  width: 1px !important;
+  height: 1px !important;
+
+  padding: 0 !important;
+
+  opacity: 0 !important;
+
+  pointer-events: none;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 980px) {
+
+  .bursary-form-container {
+    width: 94%;
+  }
+
+  .bursary-form fieldset {
+    padding: 1.7rem;
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 640px) {
+
+  .bursary-application-section {
+    padding: .5rem 0 2rem;
+  }
+
+
+  .bursary-form-container {
+    width: 94%;
+  }
+
+
+  .form-intro {
+    margin-top: 1rem;
+
+    padding: 1.5rem 1.2rem;
+
+    border-radius: 18px;
+  }
+
+
+  .form-intro::before {
+    inset: 8px;
+
+    border-radius: 14px;
+  }
+
+
+  .form-intro .eyebrow {
+    font-size: 1.1rem;
+  }
+
+
+  .bursary-form {
+    gap: 1rem;
+  }
+
+
+  .bursary-form fieldset {
+    padding: 1.45rem 1rem 1.2rem;
+
+    border-radius: 17px;
+  }
+
+
+  .bursary-form fieldset::before {
+    inset: 7px;
+
+    border-radius: 13px;
+  }
+
+
+  .bursary-form legend {
+    max-width: calc(100% - .5rem);
+
+    margin-left: 0;
+    padding: .4rem .8rem;
+
+    border-radius: 10px;
+
+    font-size: 1.4rem;
+    line-height: 1.05;
+  }
+
+
+  .bursary-form .form-grid {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+
+  .bursary-form .question {
+    font-size: 1.3rem;
+  }
+
+
+  .bursary-form .field-help {
+    font-size: 1.1rem;
+  }
+
+
+  .bursary-form .choice-group {
+    flex-direction: column;
+
+    gap: .55rem;
+  }
+
+
+  .bursary-form .choice-group label {
+    width: 100%;
+
+    padding: .75rem .8rem;
+
+    font-size: 1.15rem;
+  }
+
+
+  .bursary-form .form-group label,
+  .bursary-form .consent-box label {
+    font-size: 1.15rem;
+  }
+
+
+  .bursary-form input[type="text"],
+  .bursary-form input[type="email"],
+  .bursary-form input[type="tel"],
+  .bursary-form input[type="number"],
+  .bursary-form select,
+  .bursary-form textarea {
+
+    font-size: 1.15rem;
+  }
+
+
+  .bursary-form .form-submit {
+    margin-top: .25rem;
+  }
+
+
+  .bursary-form .primary-form-button {
+    width: 100%;
+    min-width: unset;
+
+    font-size: 1.7rem;
+  }
+
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .bursary-form .choice-group label,
+  .bursary-form .primary-form-button {
+    transition: none;
+  }
+
 }

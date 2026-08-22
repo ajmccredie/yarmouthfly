@@ -658,3 +658,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// ---------- BROKEN IMAGE HANDLING ----------
+
+document.querySelectorAll('img').forEach((img) => {
+
+    const markAsBroken = () => {
+        img.classList.add('broken-image');
+    };
+
+    img.addEventListener('error', markAsBroken);
+
+    // Catch images which failed before the JS loaded
+    if (img.complete && img.naturalWidth === 0) {
+        markAsBroken();
+    }
+
+});

@@ -243,7 +243,171 @@
             <input type="text" id="app-emergency" name="emergency_contact" />
           </p>
 
-          <p class="checkbox-wrap">
+          <div class="subsidy-choice">
+
+            <p>
+              <strong>Applying for subsidised pricing?</strong>
+              Complete the additional questions below so we can consider your application.
+            </p>
+
+            <p class="subsidy-choice-or">or</p>
+
+            <button type="button" class="btn skip-subsidy-btn" id="skip-subsidy-btn">
+              I don't need subsidised pricing — skip these questions
+            </button>
+
+          </div>
+
+          <!-- ==================================================
+     SUBSIDISED PRICING INFORMATION
+================================================== -->
+
+          <div class="subsidy-form-section">
+
+            <div class="subsidy-form-heading">
+              <h2>Subsidised Pricing Information</h2>
+
+              <p>
+                Please complete the following questions if you would like to be
+                considered for a subsidised place on one of our Professional
+                Development courses.
+              </p>
+            </div>
+
+            <!-- UK RESIDENCY -->
+            <fieldset class="form-question-group">
+              <legend>1. Are you a permanent resident of the UK?</legend>
+
+              <div class="form-radio-options">
+
+                <label>
+                  <input type="radio" name="permanent_uk_resident" value="Yes">
+                  Yes
+                </label>
+
+                <label>
+                  <input type="radio" name="permanent_uk_resident" value="No">
+                  No
+                </label>
+
+              </div>
+            </fieldset>
+
+
+            <!-- BENEFITS / GRANTS -->
+
+            <fieldset class="form-question-group">
+              <legend>2. Are you in receipt of any benefits or grants?</legend>
+
+              <div class="form-radio-options">
+
+                <label>
+                  <input type="radio" name="benefits_or_grants" value="Yes">
+                  Yes
+                </label>
+
+                <label>
+                  <input type="radio" name="benefits_or_grants" value="No">
+                  No
+                </label>
+
+              </div>
+
+              <div class="subsidy-follow-up">
+                <label for="benefits-details">
+                  If yes, please give details
+                </label>
+
+                <textarea id="benefits-details" name="benefits_or_grants_details" rows="4"></textarea>
+              </div>
+            </fieldset>
+
+
+            <!-- GENERATED INCOME -->
+
+            <fieldset class="form-question-group">
+              <legend>
+                3. What was your generated income for the 2025/2026 tax year?
+              </legend>
+
+              <div class="form-radio-options form-radio-stack">
+
+                <label>
+                  <input type="radio" name="income_2025_2026" value="Less than £12,000">
+                  Less than £12,000
+                </label>
+
+                <label>
+                  <input type="radio" name="income_2025_2026" value="£12,000 - £20,000">
+                  £12,000–£20,000
+                </label>
+
+                <label>
+                  <input type="radio" name="income_2025_2026" value="More than £20,000">
+                  More than £20,000
+                </label>
+
+              </div>
+            </fieldset>
+
+
+            <!-- CURRENT FLYING -->
+
+            <fieldset class="form-question-group">
+              <legend>
+                4. Do you currently practise flying trapeze regularly?
+              </legend>
+
+              <div class="form-radio-options">
+
+                <label>
+                  <input type="radio" name="regular_flying_trapeze" value="Yes">
+                  Yes
+                </label>
+
+                <label>
+                  <input type="radio" name="regular_flying_trapeze" value="No">
+                  No
+                </label>
+
+              </div>
+
+              <div class="subsidy-follow-up">
+                <label for="regular-flying-details">
+                  Please give details
+                </label>
+
+                <textarea id="regular-flying-details" name="regular_flying_trapeze_details" rows="4"
+                  placeholder="For example: where you currently train, how often you fly, and your approximate current level."></textarea>
+              </div>
+            </fieldset>
+
+
+            <!-- STATEMENT OF NEED -->
+
+            <fieldset class="form-question-group">
+              <legend>5. Statement of Need</legend>
+
+              <p class="field-help">
+                Please provide any further information you feel would strengthen
+                your application for subsidised pricing at FlightHouse.
+              </p>
+
+              <p class="field-help">
+                For example, you may wish to tell us about your current employment,
+                financial circumstances, medical or access requirements, or any other
+                circumstances relevant to your application.
+              </p>
+
+              <textarea id="statement-of-need" name="statement_of_need" rows="7"></textarea>
+
+            </fieldset>
+
+          </div>
+
+
+          <!-- EXISTING CONSENT -->
+          <p class="checkbox-wrap" id="application-confirmation">
             <label>
               <input type="checkbox" name="consent" required />
               I confirm the information provided is correct and consent to being contacted about this application.

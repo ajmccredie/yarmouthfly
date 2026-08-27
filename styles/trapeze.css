@@ -3465,3 +3465,299 @@ img.broken-image {
   }
 
 }
+
+/* ==================================================
+   PROFESSIONAL DEVELOPMENT - SUBSIDISED PRICING
+================================================== */
+
+.subsidy-form-section {
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+
+  border-top: 2px solid rgba(127, 16, 40, .25);
+}
+
+
+.subsidy-form-heading {
+  max-width: 760px;
+
+  margin: 0 auto 2rem;
+
+  text-align: center;
+}
+
+
+.subsidy-form-heading h2 {
+  margin-bottom: .6rem;
+
+  color: var(--button);
+}
+
+
+.subsidy-form-heading p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Individual questions */
+
+.form-question-group {
+  margin: 0 0 1.25rem;
+  padding: 1.3rem 1.4rem;
+
+  background: rgba(255, 255, 255, .32);
+
+  border: 1px solid rgba(42, 33, 29, .16);
+  border-radius: 14px;
+}
+
+
+.form-question-group legend {
+  width: 100%;
+
+  margin-bottom: .7rem;
+  padding: 0;
+
+  color: var(--ink);
+
+  font-family: "Alumni Sans", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+
+/* Yes / No and income choices */
+
+.form-radio-options {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: .7rem;
+
+  margin: .6rem 0 1rem;
+}
+
+
+.form-radio-stack {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+
+.form-radio-options label {
+  display: flex;
+  align-items: center;
+
+  gap: .6rem;
+
+  min-width: 120px;
+
+  margin: 0;
+  padding: .65rem .9rem;
+
+  background: rgba(255, 255, 255, .5);
+
+  border: 1px solid rgba(42, 33, 29, .14);
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease;
+}
+
+
+.form-radio-options label:hover {
+  background: rgba(255, 255, 255, .8);
+
+  border-color: rgba(127, 16, 40, .35);
+}
+
+
+/* Important: override normal full-width input rules */
+
+.form-radio-options input[type="radio"] {
+  width: 1.1rem;
+  height: 1.1rem;
+
+  min-width: 1.1rem;
+
+  margin: 0;
+  padding: 0;
+
+  accent-color: var(--button);
+
+  cursor: pointer;
+}
+
+
+.form-radio-options label:has(input:checked) {
+  background: rgba(127, 16, 40, .09);
+
+  border-color: rgba(127, 16, 40, .45);
+}
+
+
+/* Follow-up text fields */
+
+.subsidy-follow-up {
+  margin-top: 1rem;
+}
+
+
+.subsidy-follow-up label {
+  display: block;
+
+  margin-bottom: .4rem;
+
+  font-weight: 600;
+}
+
+
+.form-question-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/* Supporting explanation */
+
+.form-question-group .field-help {
+  max-width: 760px;
+
+  margin: .35rem 0 .7rem;
+
+  color: var(--muted);
+
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+
+/* Mobile */
+
+@media (max-width: 640px) {
+
+  .subsidy-form-section {
+    margin-top: 2rem;
+  }
+
+
+  .form-question-group {
+    padding: 1.1rem 1rem;
+  }
+
+
+  .form-question-group legend {
+    font-size: 1.25rem;
+  }
+
+
+  .form-radio-options {
+    flex-direction: column;
+  }
+
+
+  .form-radio-options label {
+    width: 100%;
+
+    box-sizing: border-box;
+  }
+
+}
+
+/* ==================================================
+   SUBSIDISED PRICING CHOICE / SKIP BUTTON
+================================================== */
+
+.subsidy-choice {
+  max-width: 760px;
+
+  margin: 3rem auto 1.5rem;
+  padding: 1.5rem;
+
+  background: rgba(215, 187, 132, .18);
+
+  border: 1px solid rgba(159, 124, 71, .32);
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+
+.subsidy-choice p {
+  max-width: 680px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.subsidy-choice-or {
+  margin: .65rem 0;
+
+  color: var(--muted);
+
+  font-family: "BenchNine", sans-serif;
+  font-size: 1.3rem;
+
+  letter-spacing: .08em;
+
+  text-transform: uppercase;
+}
+
+
+.skip-subsidy-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: .25rem;
+
+  background: transparent;
+
+  color: var(--button);
+
+  border: 2px solid var(--button);
+
+  box-shadow: none;
+}
+
+
+.skip-subsidy-btn:hover,
+.skip-subsidy-btn:focus-visible {
+  background: var(--button);
+
+  color: #fff;
+}
+
+
+#application-confirmation {
+  scroll-margin-top: 120px;
+}
+
+
+@media (max-width: 640px) {
+
+  .subsidy-choice {
+    margin-top: 2rem;
+
+    padding: 1.2rem 1rem;
+  }
+
+
+  .skip-subsidy-btn {
+    width: 100%;
+
+    white-space: normal;
+
+    line-height: 1.2;
+  }
+
+}

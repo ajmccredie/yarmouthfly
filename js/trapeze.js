@@ -675,3 +675,21 @@ document.querySelectorAll('img').forEach((img) => {
     }
 
 });
+
+// ---------- SKIP SUBSIDISED PRICING QUESTIONS ----------
+
+const skipSubsidyBtn = document.getElementById('skip-subsidy-btn');
+const applicationConfirmation = document.getElementById('application-confirmation');
+
+if (skipSubsidyBtn && applicationConfirmation) {
+
+  skipSubsidyBtn.addEventListener('click', () => {
+
+    applicationConfirmation.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+  });
+
+}

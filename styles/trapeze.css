@@ -1585,8 +1585,8 @@ body.newsletter-open {
    SUMMER CLASS PLAN POPUP
 ================================================== */
 
-.summer-plan-trigger {
-  margin: 0.75rem 0 2rem;
+.summer-plan-trigger,
+.september-plan-trigger {
   border: 0;
   cursor: pointer;
 }
@@ -3760,4 +3760,138 @@ img.broken-image {
     line-height: 1.2;
   }
 
+}
+
+/* ==================================================
+   DROP-IN PRICING
+================================================== */
+
+.course-with-pricing{
+  grid-template-columns:1fr auto;
+}
+
+.course-actions{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:1rem;
+  flex-wrap:wrap;
+}
+
+.course-actions .btn{
+  min-width:200px;
+}
+
+/* Pricing is hidden initially */
+.course-pricing{
+  grid-column:1 / -1;
+  display:none;
+  width:100%;
+  margin-top:1.5rem;
+  padding:1.5rem;
+
+  background:rgba(244,241,234,.72);
+  border:1px solid rgba(42,33,29,.2);
+  border-radius:18px;
+}
+
+/* JS adds this when View Prices is clicked */
+.course-pricing.is-open{
+  display:block;
+}
+
+.course-pricing > h3{
+  margin-bottom:1.5rem;
+}
+
+.pricing-block{
+  margin-bottom:2rem;
+}
+
+.pricing-block:last-child{
+  margin-bottom:0;
+}
+
+.pricing-block h4{
+  font-family:"BenchNine", sans-serif;
+  font-size:1.8rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  margin:0 0 .75rem;
+}
+
+.pricing-table-wrap{
+  width:100%;
+  overflow-x:auto;
+  border-radius:14px;
+}
+
+.pricing-table{
+  width:100%;
+  border-collapse:collapse;
+  background:rgba(255,255,255,.7);
+}
+
+.pricing-table th,
+.pricing-table td{
+  padding:.8rem 1rem;
+  text-align:left;
+  border-bottom:1px solid rgba(42,33,29,.14);
+}
+
+.pricing-table thead th{
+  background:rgba(44,36,34,.96);
+  color:var(--gold);
+  font-family:"BenchNine", sans-serif;
+  font-size:1.35rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+
+.pricing-table tbody tr:last-child th,
+.pricing-table tbody tr:last-child td{
+  border-bottom:0;
+}
+
+.pricing-table strong{
+  color:var(--button);
+}
+
+.subsidised-pricing{
+  padding:1.25rem;
+  border-radius:14px;
+  background:rgba(215,187,132,.16);
+}
+
+
+/* MOBILE */
+@media (max-width:640px){
+
+  .course-with-pricing{
+    grid-template-columns:1fr;
+  }
+
+  .course-actions{
+    flex-direction:column;
+    align-items:stretch;
+    width:100%;
+    gap:.8rem;
+  }
+
+  .course-actions .btn{
+    width:100%;
+    min-width:0;
+  }
+
+  .course-pricing{
+    grid-column:1;
+    padding:1rem;
+    margin-top:.75rem;
+  }
+
+  .pricing-table th,
+  .pricing-table td{
+    padding:.7rem;
+    font-size:1.05rem;
+  }
 }

@@ -693,3 +693,24 @@ if (skipSubsidyBtn && applicationConfirmation) {
   });
 
 }
+
+// ==================================================
+// DROP-IN PRICING PANEL
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const pricingTrigger = document.querySelector(".pricing-trigger");
+  const pricingPanel = document.getElementById("drop-in-pricing");
+
+  if (!pricingTrigger || !pricingPanel) return;
+
+  pricingTrigger.addEventListener("click", () => {
+    const isOpen = pricingPanel.classList.toggle("is-open");
+
+    pricingTrigger.setAttribute("aria-expanded", isOpen);
+
+    pricingTrigger.textContent = isOpen
+      ? "Hide Prices"
+      : "View Prices";
+  });
+});

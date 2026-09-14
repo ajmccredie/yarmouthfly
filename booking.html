@@ -91,9 +91,14 @@
           with our Instagram account and newsletter.
         </p>
 
+        <p>
+          If you fly regularly, you can also
+          <a href="#class-passes" class="passes-text-link" data-open-passes="booking-passes-panel">
+            view our savings with multi-class bundles
+          </a>.
+        </p>
+
         <div class="schedule-button-group">
-
-
           <button type="button" class="btn september-plan-trigger" id="open-september-plan" aria-haspopup="dialog"
             aria-controls="september-plan-modal">
             View September Timetable
@@ -114,6 +119,43 @@
           </a>
         </div>
 
+        <!-- ========================================
+     CLASS PASSES
+========================================= -->
+
+        <section class="passes-section" id="class-passes">
+
+          <details class="passes-details" id="booking-passes-panel">
+
+            <summary class="passes-summary">
+              Multi-Class Bundles
+            </summary>
+
+            <div class="passes-content">
+
+              <h2>Buy a Class Bundle</h2>
+
+              <p>
+                Flying regularly? Save when you book several classes at once with
+                one of our multi-class bundles. Bookwhen calls these 'passes'.
+              </p>
+
+              <iframe class="passes-iframe" title="FlightHouse class passes"
+                data-src="https://bookwhen.com/flighthouse/iframe/passes" loading="lazy"></iframe>
+
+              <p class="passes-fallback">
+                Having trouble viewing the passes for the bundles?
+                <a href="https://bookwhen.com/flighthouse/passes" target="_blank" rel="noopener noreferrer">
+                  Open the FlightHouse Passes page directly.
+                </a>
+              </p>
+
+            </div>
+
+          </details>
+
+        </section>
+
         <h3>Other questions and enquiries</h3>
         <p>
           Please use our contact form for all other questions and enquiries.
@@ -126,14 +168,13 @@
   </main>
 
   <!-- ========================================
-     SUMMER CLASS PLAN POPUP
+     CLASS PLAN POPUP
 ========================================= -->
 
   <div class="summer-plan-modal" id="summer-plan-modal" role="dialog" aria-modal="true"
     aria-labelledby="summer-plan-title" aria-hidden="true">
     <div class="summer-plan-modal__panel" role="document">
-      <button type="button" class="summer-plan-modal__close" id="close-summer-plan"
-        aria-label="Close class plan">
+      <button type="button" class="summer-plan-modal__close" id="close-summer-plan" aria-label="Close class plan">
         &times;
       </button>
       <h2 id="summer-plan-title">
@@ -156,15 +197,14 @@
   </div>
 
   <!-- ========================================
-     EARLY SEPTEMBER CLASS PLAN POPUP
+     CLASS PLAN POPUP
 ========================================= -->
 
   <div class="summer-plan-modal" id="september-plan-modal" role="dialog" aria-modal="true"
     aria-labelledby="september-plan-title" aria-hidden="true">
     <div class="summer-plan-modal__panel" role="document">
 
-      <button type="button" class="summer-plan-modal__close" id="close-september-plan"
-        aria-label="Close class plan">
+      <button type="button" class="summer-plan-modal__close" id="close-september-plan" aria-label="Close class plan">
         &times;
       </button>
 
@@ -178,7 +218,7 @@
       </p>
 
       <div class="summer-plan-modal__image-wrap">
-        <img src="images/sept_schedule.png" alt="FlightHouse early September flying trapeze class timetable"
+        <img src="images/sept_schedule.png" alt="FlightHouse flying trapeze class timetable"
           class="summer-plan-modal__image" />
       </div>
 

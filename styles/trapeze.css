@@ -2599,6 +2599,49 @@ body.summer-plan-open {
   pointer-events: none;
 }
 
+/* ==================================================
+   DROP-IN PANEL - TABLET / MEDIUM SCREENS
+================================================== */
+
+@media (max-width: 980px) {
+
+  .course-with-pricing {
+    grid-template-columns: 1fr;
+  }
+
+  .course-with-pricing .course-copy {
+    grid-column: 1;
+    width: 100%;
+  }
+
+  .course-with-pricing .course-copy p {
+    max-width: none;
+  }
+
+  .course-actions {
+    grid-column: 1;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .course-actions .btn {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .course-pricing,
+  .course-passes {
+    grid-column: 1;
+    width: 100%;
+  }
+
+}
 
 /* ==================================================
    TABLET
@@ -2871,7 +2914,7 @@ body.summer-plan-open {
 }
 
 
-.programme-detail-card > * {
+.programme-detail-card>* {
   position: relative;
   z-index: 1;
 }
@@ -2889,10 +2932,8 @@ body.summer-plan-open {
 
   color: #fff7f4;
 
-  background: linear-gradient(
-    rgba(127, 16, 40, .98),
-    rgba(91, 8, 27, .98)
-  );
+  background: linear-gradient(rgba(127, 16, 40, .98),
+      rgba(91, 8, 27, .98));
 
   border-radius: 999px;
 
@@ -3279,21 +3320,21 @@ body.summer-plan-open {
 ================================================== */
 
 img.broken-image {
-    width: 1px !important;
-    height: 1px !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    max-width: 1px !important;
-    max-height: 1px !important;
+  width: 1px !important;
+  height: 1px !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 1px !important;
+  max-height: 1px !important;
 
-    margin: 0 !important;
-    padding: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 
-    border: 0 !important;
+  border: 0 !important;
 
-    opacity: 0;
+  opacity: 0;
 
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* ==================================================
@@ -3766,132 +3807,462 @@ img.broken-image {
    DROP-IN PRICING
 ================================================== */
 
-.course-with-pricing{
-  grid-template-columns:1fr auto;
+.course-with-pricing {
+  grid-template-columns: 1fr auto;
 }
 
-.course-actions{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:1rem;
-  flex-wrap:wrap;
+.course-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-.course-actions .btn{
-  min-width:200px;
+.course-actions .btn {
+  min-width: 200px;
 }
 
 /* Pricing is hidden initially */
-.course-pricing{
-  grid-column:1 / -1;
-  display:none;
-  width:100%;
-  margin-top:1.5rem;
-  padding:1.5rem;
+.course-pricing {
+  grid-column: 1 / -1;
+  display: none;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
 
-  background:rgba(244,241,234,.72);
-  border:1px solid rgba(42,33,29,.2);
-  border-radius:18px;
+  background: rgba(244, 241, 234, .72);
+  border: 1px solid rgba(42, 33, 29, .2);
+  border-radius: 18px;
 }
 
 /* JS adds this when View Prices is clicked */
-.course-pricing.is-open{
-  display:block;
+.course-pricing.is-open {
+  display: block;
 }
 
-.course-pricing > h3{
-  margin-bottom:1.5rem;
+.course-pricing>h3 {
+  margin-bottom: 1.5rem;
 }
 
-.pricing-block{
-  margin-bottom:2rem;
+.pricing-block {
+  margin-bottom: 2rem;
 }
 
-.pricing-block:last-child{
-  margin-bottom:0;
+.pricing-block:last-child {
+  margin-bottom: 0;
 }
 
-.pricing-block h4{
-  font-family:"BenchNine", sans-serif;
-  font-size:1.8rem;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-  margin:0 0 .75rem;
+.pricing-block h4 {
+  font-family: "BenchNine", sans-serif;
+  font-size: 1.8rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  margin: 0 0 .75rem;
 }
 
-.pricing-table-wrap{
-  width:100%;
-  overflow-x:auto;
-  border-radius:14px;
+.pricing-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 14px;
 }
 
-.pricing-table{
-  width:100%;
-  border-collapse:collapse;
-  background:rgba(255,255,255,.7);
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, .7);
 }
 
 .pricing-table th,
-.pricing-table td{
-  padding:.8rem 1rem;
-  text-align:left;
-  border-bottom:1px solid rgba(42,33,29,.14);
+.pricing-table td {
+  padding: .8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(42, 33, 29, .14);
 }
 
-.pricing-table thead th{
-  background:rgba(44,36,34,.96);
-  color:var(--gold);
-  font-family:"BenchNine", sans-serif;
-  font-size:1.35rem;
-  letter-spacing:.05em;
-  text-transform:uppercase;
+.pricing-table thead th {
+  background: rgba(44, 36, 34, .96);
+  color: var(--gold);
+  font-family: "BenchNine", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
 }
 
 .pricing-table tbody tr:last-child th,
-.pricing-table tbody tr:last-child td{
-  border-bottom:0;
+.pricing-table tbody tr:last-child td {
+  border-bottom: 0;
 }
 
-.pricing-table strong{
-  color:var(--button);
+.pricing-table strong {
+  color: var(--button);
 }
 
-.subsidised-pricing{
-  padding:1.25rem;
-  border-radius:14px;
-  background:rgba(215,187,132,.16);
+.subsidised-pricing {
+  padding: 1.25rem;
+  border-radius: 14px;
+  background: rgba(215, 187, 132, .16);
 }
 
 
 /* MOBILE */
-@media (max-width:640px){
+@media (max-width:640px) {
 
-  .course-with-pricing{
-    grid-template-columns:1fr;
+  .course-with-pricing {
+    grid-template-columns: 1fr;
   }
 
-  .course-actions{
-    flex-direction:column;
-    align-items:stretch;
-    width:100%;
-    gap:.8rem;
+  .course-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: .8rem;
   }
 
-  .course-actions .btn{
-    width:100%;
-    min-width:0;
+  .course-actions .btn {
+    width: 100%;
+    min-width: 0;
   }
 
-  .course-pricing{
-    grid-column:1;
-    padding:1rem;
-    margin-top:.75rem;
+  .course-pricing {
+    grid-column: 1;
+    padding: 1rem;
+    margin-top: .75rem;
   }
 
   .pricing-table th,
-  .pricing-table td{
-    padding:.7rem;
-    font-size:1.05rem;
+  .pricing-table td {
+    padding: .7rem;
+    font-size: 1.05rem;
   }
+}
+
+/* ==================================================
+   CLASS PASSES EXPANDABLE PANEL
+================================================== */
+
+.passes-section,
+.course-passes {
+  width: 100%;
+  margin: 1.5rem 0 2rem;
+  scroll-margin-top: calc(var(--header-height) + 2rem);
+}
+
+.passes-details {
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.passes-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding: 1rem 1.4rem;
+
+  background: var(--button);
+  color: #fff;
+
+  font-family: "BenchNine", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.1;
+
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.passes-summary::-webkit-details-marker {
+  display: none;
+}
+
+.passes-summary::after {
+  content: "+";
+  flex: 0 0 auto;
+
+  font-family: "Alumni Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+
+  transition: transform 0.25s ease;
+}
+
+.passes-details[open] .passes-summary::after {
+  content: "−";
+}
+
+.passes-summary:hover {
+  background: var(--button-hover);
+}
+
+.passes-content {
+  padding: 1.5rem;
+}
+
+.passes-content h2,
+.passes-content h3 {
+  margin-top: 0;
+}
+
+.passes-iframe {
+  display: block;
+  width: 100%;
+  min-height: 750px;
+  margin-top: 1.25rem;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: #fff;
+}
+
+.passes-fallback {
+  margin: 1rem 0 0;
+  text-align: center;
+}
+
+.passes-fallback a,
+.passes-text-link {
+  color: var(--button);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.passes-fallback a:hover,
+.passes-text-link:hover {
+  color: var(--button-hover);
+}
+
+@media (max-width: 640px) {
+
+  .passes-summary {
+    padding: 0.9rem 1rem;
+    font-size: 1.55rem;
+  }
+
+  .passes-content {
+    padding: 1rem;
+  }
+
+  .passes-iframe {
+    min-height: 650px;
+  }
+}
+
+/* ==================================================
+   HOME PAGE LAYOUT
+================================================== */
+
+.home-hero,
+.home-feature-section,
+.home-progress-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 2rem;
+  align-items: stretch;
+
+  margin-bottom: 2.5rem;
+}
+
+
+/* Let panels/images share a sensible desktop height */
+.home-hero .stage-panel,
+.home-hero .stage-image,
+.home-feature-section .stage-panel,
+.home-feature-section .stage-image,
+.home-progress-section .stage-panel,
+.home-progress-section .stage-image {
+  min-height: 560px;
+}
+
+
+/* Images */
+.home-hero-image img,
+.home-offer-image img,
+.home-progress-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Main welcome panel */
+.home-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Don't let the academy graphic become enormous */
+.home-hero-copy .academy-logo {
+  width: min(100%, 320px);
+}
+
+
+/* What We Offer - put image on left on desktop */
+.home-feature-section {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+}
+
+.home-offer-image {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.home-offer-copy {
+  grid-column: 2;
+  grid-row: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Progress */
+.home-progress-section {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+
+.home-progress-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+/* Keep text comfortably readable */
+.home-hero-copy p,
+.home-offer-copy p,
+.home-offer-copy li,
+.home-progress-copy p {
+  max-width: 58ch;
+}
+
+
+/* CTA buttons can sit alongside each other on desktop */
+.home-offer-copy .cta-group {
+  flex-direction: row;
+}
+
+.home-offer-copy .cta-group .btn {
+  width: auto;
+  flex: 1 1 0;
+}
+
+/* ==================================================
+   HOME PAGE - MEDIUM SCREENS
+================================================== */
+
+@media (min-width: 981px) and (max-width: 1250px) {
+
+  .home-hero,
+  .home-feature-section,
+  .home-progress-section {
+    gap: 1.4rem;
+  }
+
+  .home-hero {
+    grid-template-columns: minmax(360px, .9fr) 1.1fr;
+  }
+
+  .home-feature-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-progress-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .home-hero .stage-panel,
+  .home-hero .stage-image,
+  .home-feature-section .stage-panel,
+  .home-feature-section .stage-image,
+  .home-progress-section .stage-panel,
+  .home-progress-section .stage-image {
+    min-height: 500px;
+  }
+
+  .home-hero-copy .academy-logo {
+    width: min(85%, 270px);
+  }
+
+  .home-offer-copy .cta-group {
+    flex-direction: column;
+  }
+
+  .home-offer-copy .cta-group .btn {
+    width: 100%;
+  }
+
+}
+
+/* ==================================================
+   HOME PAGE - TABLET
+================================================== */
+
+@media (max-width: 980px) {
+
+  .home-hero,
+  .home-feature-section,
+  .home-progress-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .home-hero .stage-panel,
+  .home-hero .stage-image,
+  .home-feature-section .stage-panel,
+  .home-feature-section .stage-image,
+  .home-progress-section .stage-panel,
+  .home-progress-section .stage-image {
+    min-height: auto;
+  }
+
+  .home-hero-image,
+  .home-offer-image,
+  .home-offer-copy,
+  .home-progress-image,
+  .home-progress-copy {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .home-hero-image,
+  .home-offer-image,
+  .home-progress-image {
+    min-height: 420px !important;
+  }
+
+  .home-offer-copy .cta-group {
+    flex-direction: column;
+  }
+
+  .home-offer-copy .cta-group .btn {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .home-hero,
+  .home-feature-section,
+  .home-progress-section {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .home-hero-image,
+  .home-offer-image,
+  .home-progress-image {
+    min-height: 300px !important;
+  }
+
 }

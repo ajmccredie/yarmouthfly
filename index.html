@@ -27,6 +27,8 @@
     content="Year-round indoor flying trapeze training and circus performance development." />
   <meta name="twitter:image" content="https://flighthousetrapeze.co.uk/images/flighthouse.webp" />
   <meta name="google-site-verification" content="Vd1UZDMogs3VezfLKXTsT9hG8VxjAo-LS_GMBnvgF_Y" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=BenchNine:wght@700&family=Alumni+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet" />
@@ -83,78 +85,97 @@
   </header>
 
   <main id="main-content">
-    <section class="container stage-split">
-      <div class="stage-panel stage-copy">
+    <!-- ========================================
+       HERO / WELCOME
+  ========================================= -->
+    <section class="container home-hero">
+      <div class="stage-panel stage-copy home-hero-copy">
         <h1>Welcome to FlightHouse</h1>
-        <img src="images/building.webp" alt="FlightHouse Flying Trapeze Academy" class="academy-logo">
+        <img src="images/building.webp" alt="FlightHouse Flying Trapeze Academy" class="academy-logo"
+          fetchpriority="high" decoding="async">
+
         <div class="hero-book-cta">
           <a href="booking.html" class="btn">Book Now</a>
         </div>
+
         <h3>UK’s flying trapeze academy.</h3>
-        <p>Located inside the historic Empire Theatre, FlightHouse is a collaboration between Steal This Circus, and
+        <p>
+          Located inside the historic Empire Theatre, FlightHouse is a collaboration between Steal This Circus, and
           Hippodrome Circus, offering year round professional training in flying trapeze, youth academies, intensive
-          courses and performance pathways from the home of circus in Great Yarmouth.</p>
+          courses and performance pathways from the home of circus in Great Yarmouth.
+        </p>
       </div>
-      <section class="container">
-        <div class="panel-centered stage-image">
-          <img src="images/space-net.webp" alt="The view which greets people on entry through the net" />
-        </div>
-        <div class="stage-panel stage-copy">
-          <h2>What We Offer</h2>
-          <ul class="feature-list">
-            <li>
-              Full-sized flying trapeze with professional dimensions and a cradle top catch.
-            </li>
-            <li>
-              Indoor training facilities with space for cloud swing, swinging trapeze, and cradle casting.
-            </li>
-            <li>
-              Introductory courses, intensive workshops, and open training sessions.
-            </li>
-            <li>
-              <b>The Industry Pipeline</b> — a dedicated development programme designed to train new artists
-              and connect emerging talent with professional productions worldwide.
-            </li>
-          </ul>
-          <h3><b>Opening Summer 2026</b></h3>
-          <div class="cta-group">
-            <a href="classes.html" class="btn">View Classes</a>
 
-            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-          </div>
-        </div>
-
-        <div class="stage-image">
-          <img src="images/space-top.webp" alt="View of the training space from the balcony" />
-        </div>
-      </section>
-
-      <section class="container">
-        <div class="stage-panel panel-centered">
-          <h2>Train, Explore, Progress</h2>
-          <p>
-            FlightHouse is built around strong technical foundations, safe progression, and meaningful pathways
-            into professional circus work.
-          </p>
-          <p>
-            Our training structure is designed to make new flyers feel welcome while providing experienced
-            students and aspiring professionals with the facilities, coaching, and industry connections needed to
-            take the next step in their development.
-          </p>
-          <p>
-            Explore our heritage, meet the team, learn about our vision, and apply for advanced training
-            opportunities.
-          </p>
-        </div>
-      </section>
-
-    </section>
-    <section class="container">
-      <div class="panel-centered stage-image">
-        <img src="images/layout.webp" alt="A student practises their layout" />
+      <div class="stage-image home-hero-image">
+        <img src="images/space-net.webp" alt="The view which greets people on entry through the net" decoding="async" />
       </div>
     </section>
 
+    <!-- ========================================
+       WHAT WE OFFER
+  ========================================= -->
+    <section class="container home-feature-section">
+      <div class="stage-panel stage-copy home-offer-copy">
+        <h2>What We Offer</h2>
+        <ul class="feature-list">
+          <li>
+            Full-sized flying trapeze with professional dimensions and a cradle top catch.
+          </li>
+
+          <li>
+            Indoor training facilities with space for cloud swing, swinging trapeze, and cradle casting.
+          </li>
+
+          <li>
+            Introductory courses, intensive workshops, and open training sessions.
+          </li>
+
+          <li>
+            <b>The Industry Pipeline</b> — a dedicated development programme designed to train new artists
+            and connect emerging talent with professional productions worldwide.
+          </li>
+        </ul>
+
+        <h3><b>Opened Summer 2026</b></h3>
+        <div class="cta-group">
+          <a href="classes.html" class="btn">View Classes</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+
+      <div class="stage-image home-offer-image">
+        <img src="images/space-top.webp" alt="View of the training space from the balcony" loading="lazy"
+          decoding="async" />
+      </div>
+    </section>
+
+
+    <!-- ========================================
+       PROGRESSION
+  ========================================= -->
+    <section class="container home-progress-section">
+      <div class="stage-panel home-progress-copy">
+        <h2>Train, Explore, Progress</h2>
+        <p>
+          FlightHouse is built around strong technical foundations, safe progression, and meaningful pathways
+          into professional circus work.
+        </p>
+
+        <p>
+          Our training structure is designed to make new flyers feel welcome while providing experienced
+          students and aspiring professionals with the facilities, coaching, and industry connections needed to
+          take the next step in their development.
+        </p>
+
+        <p>
+          Explore our heritage, meet the team, learn about our vision, and apply for advanced training
+          opportunities.
+        </p>
+      </div>
+      <div class="stage-image home-progress-image">
+        <img src="images/layout.webp" alt="A student practises their layout" loading="lazy" decoding="async" />
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">

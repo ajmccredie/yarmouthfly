@@ -714,3 +714,70 @@ document.addEventListener("DOMContentLoaded", () => {
       : "View Prices";
   });
 });
+
+// ==================================================
+// CLASS PASSES EXPANDABLE PANELS
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const passPanels = document.querySelectorAll(".passes-details");
+
+  function loadPassIframe(panel) {
+    if (!panel) return;
+
+    const iframe = panel.querySelector(".passes-iframe");
+
+    if (
+      iframe &&
+      !iframe.getAttribute("src") &&
+      iframe.dataset.src
+    ) {
+      iframe.setAttribute("src", iframe.dataset.src);
+    }
+  }
+
+
+  // Normal manual opening of a panel
+  passPanels.forEach((panel) => {
+
+    // Always begin closed when the page loads
+    panel.removeAttribute("open");
+
+    panel.addEventListener("toggle", () => {
+
+      if (panel.open) {
+        loadPassIframe(panel);
+      }
+    });
+  });
+
+
+  // Text links which jump to and open a Passes panel
+  document.querySelectorAll("[data-open-passes]").forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+      event.preventDefault();
+
+      const panelId = link.dataset.openPasses;
+      const panel = document.getElementById(panelId);
+
+      if (!panel) return;
+
+      panel.open = true;
+
+      loadPassIframe(panel);
+
+      // Give <details> time to expand before calculating
+      // its final position.
+      window.setTimeout(() => {
+
+        panel.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 100);
+    });
+  });
+});

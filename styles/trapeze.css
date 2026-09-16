@@ -4055,6 +4055,131 @@ img.broken-image {
 }
 
 /* ==================================================
+   NESTED PASS HELP DROPDOWN
+================================================== */
+
+.pass-help-details {
+  width: 100%;
+  margin: 1.25rem 0 1.75rem;
+
+  border: 1px solid rgba(92, 56, 39, 0.25);
+  border-radius: 14px;
+
+  background: rgba(255, 248, 232, 0.65);
+  overflow: hidden;
+}
+
+
+/* Clickable heading */
+.pass-help-summary {
+  position: relative;
+
+  padding: 1rem 3.2rem 1rem 1.25rem;
+
+  font-family: "Alumni Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  list-style: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+
+/* Remove browser's default triangle */
+.pass-help-summary::-webkit-details-marker {
+  display: none;
+}
+
+.pass-help-summary::marker {
+  display: none;
+  content: "";
+}
+
+
+/* Custom + */
+.pass-help-summary::after {
+  content: "+";
+
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+/* Change + to − when open */
+.pass-help-details[open] > .pass-help-summary::after {
+  content: "−";
+}
+
+
+.pass-help-summary:hover {
+  background: rgba(127, 16, 40, 0.08);
+}
+
+
+/* Actual instructions */
+.pass-help-content {
+  padding: 0.25rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(92, 56, 39, 0.15);
+}
+
+
+.pass-help-content ol {
+  margin: 1rem 0;
+  padding-left: 1.6rem;
+}
+
+
+.pass-help-content li {
+  margin-bottom: 0.65rem;
+}
+
+
+/* Password reset note */
+.pass-password-help {
+  margin-top: 1.25rem;
+  padding: 1rem 1.2rem;
+
+  background: rgba(127, 16, 40, 0.08);
+  border-left: 4px solid #7f1028;
+  border-radius: 8px;
+}
+
+
+.pass-password-help p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Mobile */
+@media (max-width: 640px) {
+
+  .pass-help-summary {
+    padding: 0.9rem 2.8rem 0.9rem 1rem;
+    font-size: 1.15rem;
+  }
+
+  .pass-help-content {
+    padding: 0.25rem 1rem 1.2rem;
+  }
+
+  .pass-password-help {
+    padding: 0.9rem 1rem;
+  }
+
+}
+
+/* ==================================================
    HOME PAGE LAYOUT
 ================================================== */
 

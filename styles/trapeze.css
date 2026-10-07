@@ -1582,16 +1582,16 @@ body.newsletter-open {
 }
 
 /* ==================================================
-   SUMMER CLASS PLAN POPUP
+   CLASS PLAN POPUP
 ================================================== */
 
-.summer-plan-trigger,
+.schedule-plan-trigger,
 .september-plan-trigger {
   border: 0;
   cursor: pointer;
 }
 
-.summer-plan-modal {
+.schedule-plan-modal {
   position: fixed;
   inset: 0;
   z-index: 11000;
@@ -1616,13 +1616,13 @@ body.newsletter-open {
     visibility 0.25s ease;
 }
 
-.summer-plan-modal.is-open {
+.schedule-plan-modal.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-.summer-plan-modal__panel {
+.schedule-plan-modal__panel {
   position: relative;
 
   width: min(96vw, 1150px);
@@ -1650,11 +1650,11 @@ body.newsletter-open {
   transition: transform 0.25s ease;
 }
 
-.summer-plan-modal.is-open .summer-plan-modal__panel {
+.schedule-plan-modal.is-open .schedule-plan-modal__panel {
   transform: translateY(0) scale(1);
 }
 
-.summer-plan-modal__panel h2 {
+.schedule-plan-modal__panel h2 {
   margin: 0 3rem 0.5rem;
 
   color: var(--gold);
@@ -1662,7 +1662,7 @@ body.newsletter-open {
   text-align: center;
 }
 
-.summer-plan-modal__intro {
+.schedule-plan-modal__intro {
   max-width: 65ch;
 
   margin: 0 auto 1.25rem;
@@ -1672,7 +1672,7 @@ body.newsletter-open {
   text-align: center;
 }
 
-.summer-plan-modal__close {
+.schedule-plan-modal__close {
   position: absolute;
   top: 0.65rem;
   right: 0.8rem;
@@ -1705,18 +1705,18 @@ body.newsletter-open {
     transform 0.2s ease;
 }
 
-.summer-plan-modal__close:hover {
+.schedule-plan-modal__close:hover {
   color: #ffffff;
   background: var(--button);
   transform: rotate(5deg);
 }
 
-.summer-plan-modal__close:focus-visible {
+.schedule-plan-modal__close:focus-visible {
   outline: 3px solid #ffffff;
   outline-offset: 3px;
 }
 
-.summer-plan-modal__image-wrap {
+.schedule-plan-modal__image-wrap {
   width: 100%;
 
   padding: clamp(0.35rem, 1vw, 0.75rem);
@@ -1729,7 +1729,7 @@ body.newsletter-open {
     0 12px 35px rgba(0, 0, 0, 0.42);
 }
 
-.summer-plan-modal__image {
+.schedule-plan-modal__image {
   display: block;
 
   width: 100%;
@@ -1740,7 +1740,7 @@ body.newsletter-open {
   border-radius: 8px;
 }
 
-.summer-plan-modal__done {
+.schedule-plan-modal__done {
   display: flex;
 
   width: min(100%, 400px);
@@ -1751,12 +1751,12 @@ body.newsletter-open {
   cursor: pointer;
 }
 
-body.summer-plan-open {
+body.schedule-plan-open {
   overflow: hidden;
 }
 
 @media (max-width: 640px) {
-  .summer-plan-modal {
+  .schedule-plan-modal {
     align-items: flex-start;
 
     padding: 0.6rem;
@@ -1764,7 +1764,7 @@ body.summer-plan-open {
     overflow-y: auto;
   }
 
-  .summer-plan-modal__panel {
+  .schedule-plan-modal__panel {
     width: 100%;
     max-height: none;
 
@@ -1776,33 +1776,33 @@ body.summer-plan-open {
     border-radius: 16px;
   }
 
-  .summer-plan-modal__panel h2 {
+  .schedule-plan-modal__panel h2 {
     margin-right: 0;
     margin-left: 0;
   }
 
-  .summer-plan-modal__intro {
+  .schedule-plan-modal__intro {
     padding: 0 0.5rem;
 
     font-size: 1.15rem;
   }
 
-  .summer-plan-modal__image-wrap {
+  .schedule-plan-modal__image-wrap {
     padding: 0.25rem;
 
     overflow-x: auto;
   }
 
-  .summer-plan-modal__image {
+  .schedule-plan-modal__image {
     min-width: 680px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
 
-  .summer-plan-modal,
-  .summer-plan-modal__panel,
-  .summer-plan-modal__close {
+  .schedule-plan-modal,
+  .schedule-plan-modal__panel,
+  .schedule-plan-modal__close {
     transition: none;
   }
 }

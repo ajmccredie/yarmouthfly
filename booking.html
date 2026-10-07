@@ -99,183 +99,198 @@
         </p>
 
         <div class="schedule-button-group">
-          
-          <button type="button" class="btn summer-plan-trigger" id="open-summer-plan" aria-haspopup="dialog"
-            aria-controls="summer-plan-modal">
+
+          <button type="button" class="btn schedule-plan-trigger" data-schedule-target="october-plan-modal"
+            aria-haspopup="dialog" aria-controls="october-plan-modal">
             View October Timetable
           </button>
-        </div>
-        <iframe class="booking-iframe" src="https://bookwhen.com/flighthouse/iframe" frameborder="0" scrolling="yes"
-          seamless="seamless" title="FlightHouse class booking calendar"></iframe>
-        <div class="booking-fallback">
-          <p>
-            Having trouble viewing the booking system?
-          </p>
-          <a href="https://bookwhen.com/flighthouse" target="_blank" rel="noopener noreferrer" class="btn booking-btn">
-            Open Booking System
-          </a>
+
+          <button type="button" class="btn schedule-plan-trigger" data-schedule-target="november-plan-modal"
+            aria-haspopup="dialog" aria-controls="november-plan-modal">
+            View November Timetable
+          </button>
+
         </div>
 
-        <!-- ========================================
+      <iframe class="booking-iframe" src="https://bookwhen.com/flighthouse/iframe" frameborder="0" scrolling="yes"
+        seamless="seamless" title="FlightHouse class booking calendar"></iframe>
+      <div class="booking-fallback">
+        <p>
+          Having trouble viewing the booking system?
+        </p>
+        <a href="https://bookwhen.com/flighthouse" target="_blank" rel="noopener noreferrer" class="btn booking-btn">
+          Open Booking System
+        </a>
+      </div>
+
+      <!-- ========================================
      CLASS PASSES
 ========================================= -->
 
-        <section class="passes-section" id="class-passes">
+      <section class="passes-section" id="class-passes">
 
-          <details class="passes-details" id="booking-passes-panel">
+        <details class="passes-details" id="booking-passes-panel">
 
-            <summary class="passes-summary">
-              Multi-Class Bundles
-            </summary>
+          <summary class="passes-summary">
+            Multi-Class Bundles
+          </summary>
 
-            <div class="passes-content">
+          <div class="passes-content">
 
-              <h2>Buy a Class Bundle</h2>
+            <h2>Buy a Class Bundle</h2>
 
-              <p>
-                Flying regularly? Save when you book several classes at once with
-                one of our multi-class bundles. Bookwhen calls these 'passes'.
-              </p>
+            <p>
+              Flying regularly? Save when you book several classes at once with
+              one of our multi-class bundles. Bookwhen calls these 'passes'.
+            </p>
 
-              <!-- HOW TO USE YOUR PASS -->
-              <details class="pass-help-details">
+            <!-- HOW TO USE YOUR PASS -->
+            <details class="pass-help-details">
 
-                <summary class="pass-help-summary">
-                  How do I use my class pass?
-                </summary>
+              <summary class="pass-help-summary">
+                How do I use my class pass?
+              </summary>
 
-                <div class="pass-help-content">
+              <div class="pass-help-content">
 
+                <p>
+                  Once you've purchased a pass, you can use the included tickets when
+                  booking eligible FlightHouse classes.
+                </p>
+
+                <ol>
+                  <li>
+                    Choose the class or classes you'd like to attend from our booking page.
+                  </li>
+
+                  <li>
+                    <strong>Log in to your Bookwhen account before completing checkout.</strong>
+                  </li>
+
+                  <li>
+                    Bookwhen will recognise any eligible passes linked to your account.
+                  </li>
+
+                  <li>
+                    Your available pass tickets will be applied to eligible bookings and
+                    removed from your total purchase price.
+                  </li>
+                </ol>
+
+                <div class="pass-password-help">
                   <p>
-                    Once you've purchased a pass, you can use the included tickets when
-                    booking eligible FlightHouse classes.
+                    <strong>Being asked for a password you don't remember setting?</strong>
                   </p>
 
-                  <ol>
-                    <li>
-                      Choose the class or classes you'd like to attend from our booking page.
-                    </li>
+                  <p>
+                    Occasionally Bookwhen may ask an existing customer to log in even if
+                    you don't remember setting a password when you originally booked.
+                    Simply use the <strong>password reset</strong> option on the login
+                    screen to set a new password.
+                  </p>
 
-                    <li>
-                      <strong>Log in to your Bookwhen account before completing checkout.</strong>
-                    </li>
-
-                    <li>
-                      Bookwhen will recognise any eligible passes linked to your account.
-                    </li>
-
-                    <li>
-                      Your available pass tickets will be applied to eligible bookings and
-                      removed from your total purchase price.
-                    </li>
-                  </ol>
-
-                  <div class="pass-password-help">
-                    <p>
-                      <strong>Being asked for a password you don't remember setting?</strong>
-                    </p>
-
-                    <p>
-                      Occasionally Bookwhen may ask an existing customer to log in even if
-                      you don't remember setting a password when you originally booked.
-                      Simply use the <strong>password reset</strong> option on the login
-                      screen to set a new password.
-                    </p>
-
-                    <p>
-                      You can then log in normally for future bookings and Bookwhen will
-                      recognise passes associated with your account.
-                    </p>
-                  </div>
-
+                  <p>
+                    You can then log in normally for future bookings and Bookwhen will
+                    recognise passes associated with your account.
+                  </p>
                 </div>
 
-              </details>
+              </div>
+
+            </details>
 
 
-              <iframe class="passes-iframe" title="FlightHouse class passes"
-                data-src="https://bookwhen.com/flighthouse/iframe/passes" loading="lazy"></iframe>
+            <iframe class="passes-iframe" title="FlightHouse class passes"
+              data-src="https://bookwhen.com/flighthouse/iframe/passes" loading="lazy"></iframe>
 
-              <p class="passes-fallback">
-                Having trouble viewing the passes for the bundles?
-                <a href="https://bookwhen.com/flighthouse/passes" target="_blank" rel="noopener noreferrer">
-                  Open the FlightHouse Passes page directly.
-                </a>
-              </p>
+            <p class="passes-fallback">
+              Having trouble viewing the passes for the bundles?
+              <a href="https://bookwhen.com/flighthouse/passes" target="_blank" rel="noopener noreferrer">
+                Open the FlightHouse Passes page directly.
+              </a>
+            </p>
 
-            </div>
+          </div>
 
-          </details>
+        </details>
 
-        </section>
+      </section>
 
-        <h3>Other questions and enquiries</h3>
-        <p>
-          Please use our contact form for all other questions and enquiries.
-        </p>
-        <a href="contact.html" class="btn">
-          Contact
-        </a>
+      <h3>Other questions and enquiries</h3>
+      <p>
+        Please use our contact form for all other questions and enquiries.
+      </p>
+      <a href="contact.html" class="btn">
+        Contact
+      </a>
       </div>
     </section>
   </main>
 
   <!-- ========================================
-     CLASS PLAN POPUP
+     OCTOBER TIMETABLE
 ========================================= -->
 
-  <div class="summer-plan-modal" id="summer-plan-modal" role="dialog" aria-modal="true"
-    aria-labelledby="summer-plan-title" aria-hidden="true">
-    <div class="summer-plan-modal__panel" role="document">
-      <button type="button" class="summer-plan-modal__close" id="close-summer-plan" aria-label="Close class plan">
+  <div class="schedule-plan-modal" id="october-plan-modal" role="dialog" aria-modal="true"
+    aria-labelledby="october-plan-title" aria-hidden="true">
+
+    <div class="schedule-plan-modal__panel" role="document">
+
+      <button type="button" class="schedule-plan-modal__close" data-schedule-close aria-label="Close October timetable">
         &times;
       </button>
-      <h2 id="summer-plan-title">
-        Class Plan
+
+      <h2 id="october-plan-title">
+        October Timetable
       </h2>
-      <p class="summer-plan-modal__intro">
+
+      <p class="schedule-plan-modal__intro">
         Choose a suitable session, then close this timetable and book using
         the calendar below.
       </p>
-      <div class="summer-plan-modal__image-wrap">
-        <img src="images/summer_schedule26.png"
-          alt="FlightHouse summer class timetable showing flying trapeze classes from Monday to Sunday"
-          class="summer-plan-modal__image" />
+
+      <div class="schedule-plan-modal__image-wrap">
+        <img src="images/summer_schedule26.png" alt="FlightHouse October flying trapeze class timetable"
+          class="schedule-plan-modal__image">
       </div>
 
-      <button type="button" class="btn summer-plan-modal__done" id="close-summer-plan-button">
+      <button type="button" class="btn schedule-plan-modal__done" data-schedule-close>
         Return to Booking
       </button>
+
     </div>
   </div>
 
+
   <!-- ========================================
-     CLASS PLAN POPUP
+     NOVEMBER TIMETABLE
 ========================================= -->
 
-  <div class="summer-plan-modal" id="september-plan-modal" role="dialog" aria-modal="true"
-    aria-labelledby="september-plan-title" aria-hidden="true">
-    <div class="summer-plan-modal__panel" role="document">
+  <div class="schedule-plan-modal" id="november-plan-modal" role="dialog" aria-modal="true"
+    aria-labelledby="november-plan-title" aria-hidden="true">
 
-      <button type="button" class="summer-plan-modal__close" id="close-september-plan" aria-label="Close class plan">
+    <div class="schedule-plan-modal__panel" role="document">
+
+      <button type="button" class="schedule-plan-modal__close" data-schedule-close
+        aria-label="Close November timetable">
         &times;
       </button>
 
-      <h2 id="september-plan-title">
-        Class Plan
+      <h2 id="november-plan-title">
+        November Timetable
       </h2>
 
-      <p class="summer-plan-modal__intro">
+      <p class="schedule-plan-modal__intro">
         Choose a suitable session, then close this timetable and book using
         the calendar below.
       </p>
 
-      <div class="summer-plan-modal__image-wrap">
-        <img src="images/sept_schedule.png" alt="FlightHouse flying trapeze class timetable"
-          class="summer-plan-modal__image" />
+      <div class="schedule-plan-modal__image-wrap">
+        <img src="images/nov_schedule.png" alt="FlightHouse November flying trapeze class timetable"
+          class="schedule-plan-modal__image" loading="lazy">
       </div>
 
-      <button type="button" class="btn summer-plan-modal__done" id="close-september-plan-button">
+      <button type="button" class="btn schedule-plan-modal__done" data-schedule-close>
         Return to Booking
       </button>
 

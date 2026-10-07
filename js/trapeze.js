@@ -659,6 +659,99 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// ==================================================
+// CLASS PLAN POPUPS
+// Generic - no JS changes needed for future timetables
+// ==================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const scheduleTriggers =
+    document.querySelectorAll("[data-schedule-target]");
+
+  const scheduleModals =
+    document.querySelectorAll(".schedule-plan-modal");
+
+
+  function openScheduleModal(modal) {
+    if (!modal) return;
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+
+    document.body.classList.add("schedule-plan-open");
+  }
+
+
+  function closeScheduleModal(modal) {
+    if (!modal) return;
+
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+
+    const anyModalStillOpen =
+      document.querySelector(".schedule-plan-modal.is-open");
+
+    if (!anyModalStillOpen) {
+      document.body.classList.remove("schedule-plan-open");
+    }
+  }
+
+
+  // Open the correct timetable
+  scheduleTriggers.forEach((trigger) => {
+
+    trigger.addEventListener("click", () => {
+
+      const targetId = trigger.dataset.scheduleTarget;
+      const modal = document.getElementById(targetId);
+
+      openScheduleModal(modal);
+
+    });
+
+  });
+
+
+  // Close buttons + clicking the backdrop
+  scheduleModals.forEach((modal) => {
+
+    const closeButtons =
+      modal.querySelectorAll("[data-schedule-close]");
+
+    closeButtons.forEach((button) => {
+
+      button.addEventListener("click", () => {
+        closeScheduleModal(modal);
+      });
+
+    });
+
+
+    modal.addEventListener("click", (event) => {
+
+      if (event.target === modal) {
+        closeScheduleModal(modal);
+      }
+
+    });
+
+  });
+
+
+  // Escape closes any open timetable
+  document.addEventListener("keydown", (event) => {
+
+    if (event.key !== "Escape") return;
+
+    scheduleModals.forEach((modal) => {
+      closeScheduleModal(modal);
+    });
+
+  });
+
+});
+
 // ---------- BROKEN IMAGE HANDLING ----------
 
 document.querySelectorAll('img').forEach((img) => {

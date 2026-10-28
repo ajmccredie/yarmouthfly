@@ -4117,7 +4117,7 @@ img.broken-image {
 
 
 /* Change + to − when open */
-.pass-help-details[open] > .pass-help-summary::after {
+.pass-help-details[open]>.pass-help-summary::after {
   content: "−";
 }
 
@@ -4390,4 +4390,41 @@ img.broken-image {
     min-height: 300px !important;
   }
 
+}
+
+
+/* ==================================================
+   FLIGHTHOUSE - RESPONSIVE THEATRE DECORATIONS
+   Prevent curtains and seats obscuring content
+================================================== */
+@media (min-width: 981px) {
+
+  /* Curtains rise on wider or shorter screens */
+  body::after {
+    transform: translateY(
+      min(
+        0px,
+        calc((1400px - 100vw) * 0.12),
+        calc((100vh - 750px) * 0.4)
+      )
+    );
+  }
+
+  /* Seats sink below the viewport */
+  .theatre-seats {
+    transform: translateY(
+      max(
+        0px,
+        calc((100vw - 1200px) * 0.35),
+        calc((850px - 100vh) * 0.8)
+      )
+    );
+  }
+}
+
+/* Extra protection for very wide desktop screens */
+@media (min-width: 1600px) {
+  .theatre-seats {
+    transform: translateY(180px);
+  }
 }

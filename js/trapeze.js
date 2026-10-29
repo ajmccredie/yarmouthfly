@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   const navToggle = document.querySelector(".nav-toggle");
   const siteNav = document.querySelector(".site-nav");
@@ -82,6 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ==================================================
+  // FORMSPREE FORM SUBMISSION
+  // Cross-browser support and manual fallback
+  // ==================================================
+
   forms.forEach((form) => {
     const status = form.parentElement.querySelector(".form-status");
     const submitButton = form.querySelector('button[type="submit"]');
@@ -96,17 +102,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const honeypot = form.querySelector('input[name="_gotcha"]');
 
+      // Retain honeypot protection.
       if (honeypot && honeypot.value.trim() !== "") {
         return;
       }
 
-      if (loadTimeInput) {
-        const timeTaken = Date.now() - Number(loadTimeInput.value);
-
-        if (timeTaken < 4000) {
-          return;
-        }
-      }
+      // The previous four-second restriction has been removed.
+      // Fast submissions and autofill are now permitted.
 
       if (status) {
         status.textContent = "Sending...";
@@ -132,11 +134,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
           if (status) {
             status.textContent =
-              form.dataset.successMessage || "Thank you. Your form has been sent.";
+              form.dataset.successMessage ||
+              "Thank you. Your form has been sent.";
             status.classList.add("is-success");
           }
 
           openPopup();
+
         } else {
           if (status) {
             status.textContent =
@@ -144,16 +148,37 @@ document.addEventListener("DOMContentLoaded", () => {
             status.classList.add("is-error");
           }
         }
+
       } catch (error) {
+        console.error("Formspree submission failed:", error);
+
         if (status) {
           status.textContent =
-            "Sorry, there was a connection problem. Please try again.";
+            "We couldn't connect to the form service. You can try again, or use standard submission: ";
+
           status.classList.add("is-error");
+
+          // User-controlled fallback.
+          // Do not automatically resend because the first
+          // request may have reached Formspree.
+
+          const fallbackButton = document.createElement("button");
+          fallbackButton.type = "button";
+          fallbackButton.textContent = "Try standard submission";
+          fallbackButton.className = "btn form-fallback-btn";
+
+          fallbackButton.addEventListener("click", () => {
+            HTMLFormElement.prototype.submit.call(form);
+          });
+
+          status.appendChild(fallbackButton);
         }
+
       } finally {
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.textContent = form.dataset.buttonText || "Send";
+          submitButton.textContent =
+            form.dataset.buttonText || "Send";
         }
 
         if (loadTimeInput) {
@@ -163,6 +188,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ==================================================
+// FAQ ACCORDIONS
+// ==================================================
 
 const faqItems = document.querySelectorAll(".faq-item");
 
@@ -191,7 +220,10 @@ faqItems.forEach((item) => {
   });
 });
 
-// ---------- OPEN CLASS LEVELS FROM INTERNAL CTA ----------
+// ==================================================
+// OPEN CLASS LEVELS FROM INTERNAL CTA
+// ==================================================
+
 const urlParams = new URLSearchParams(window.location.search);
 const requestedFaq = urlParams.get("open");
 
@@ -204,7 +236,6 @@ if (
   if (targetFaq) {
     const targetQuestion = targetFaq.querySelector(".faq-question");
 
-    // Close any FAQ that may already be open
     document.querySelectorAll(".faq-item").forEach((item) => {
       item.classList.remove("is-open");
 
@@ -215,14 +246,12 @@ if (
       }
     });
 
-    // Open the class-level section
     targetFaq.classList.add("is-open");
 
     if (targetQuestion) {
       targetQuestion.setAttribute("aria-expanded", "true");
     }
 
-    // Wait until the page has laid itself out, then scroll neatly into view
     requestAnimationFrame(() => {
       targetFaq.scrollIntoView({
         behavior: "smooth",
@@ -322,9 +351,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "false"
     );
 
-    document.body.classList.add(
-      "newsletter-open"
-    );
+    document.body.classList.add("newsletter-open");
 
     const firstInput =
       newsletterModal.querySelector(
@@ -349,9 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "true"
     );
 
-    document.body.classList.remove(
-      "newsletter-open"
-    );
+    document.body.classList.remove("newsletter-open");
 
     if (lastNewsletterTrigger) {
       lastNewsletterTrigger.focus();
@@ -387,14 +412,9 @@ document.addEventListener("DOMContentLoaded", () => {
     (event) => {
       const modalIsOpen =
         newsletterModal &&
-        newsletterModal.classList.contains(
-          "is-open"
-        );
+        newsletterModal.classList.contains("is-open");
 
-      if (
-        event.key === "Escape" &&
-        modalIsOpen
-      ) {
+      if (event.key === "Escape" && modalIsOpen) {
         closeNewsletterModal();
       }
     }
@@ -410,29 +430,18 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
 
       const emailInput =
-        newsletterForm.querySelector(
-          'input[name="EMAIL"]'
-        );
+        newsletterForm.querySelector('input[name="EMAIL"]');
 
       const firstNameInput =
-        newsletterForm.querySelector(
-          'input[name="FNAME"]'
-        );
+        newsletterForm.querySelector('input[name="FNAME"]');
 
       const submitButton =
-        newsletterForm.querySelector(
-          'button[type="submit"]'
-        );
+        newsletterForm.querySelector('button[type="submit"]');
 
-      if (
-        !emailInput ||
-        !firstNameInput ||
-        !submitButton
-      ) {
+      if (!emailInput || !firstNameInput || !submitButton) {
         showNewsletterMessage(
           "The signup form could not be loaded correctly. Please refresh the page and try again."
         );
-
         return;
       }
 
@@ -442,7 +451,6 @@ document.addEventListener("DOMContentLoaded", () => {
         showNewsletterMessage(
           "Please enter your first name."
         );
-
         firstNameInput.focus();
         return;
       }
@@ -454,23 +462,18 @@ document.addEventListener("DOMContentLoaded", () => {
         showNewsletterMessage(
           "Please enter a valid email address."
         );
-
         emailInput.focus();
         return;
       }
 
       submitButton.disabled = true;
-      submitButton.textContent =
-        "Signing you up…";
+      submitButton.textContent = "Signing you up…";
 
       const callbackName =
         `mailchimpCallback_${Date.now()}`;
 
-      const formData =
-        new FormData(newsletterForm);
-
-      const parameters =
-        new URLSearchParams();
+      const formData = new FormData(newsletterForm);
+      const parameters = new URLSearchParams();
 
       formData.forEach((value, key) => {
         parameters.append(key, value);
@@ -478,8 +481,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       parameters.append("c", callbackName);
 
-      const script =
-        document.createElement("script");
+      const script = document.createElement("script");
 
       function finishRequest() {
         submitButton.disabled = false;
@@ -493,16 +495,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      window[callbackName] = function (
-        response
-      ) {
+      window[callbackName] = function (response) {
         const rawMessage =
-          cleanMailchimpMessage(
-            response?.msg
-          );
+          cleanMailchimpMessage(response?.msg);
 
-        const lowerMessage =
-          rawMessage.toLowerCase();
+        const lowerMessage = rawMessage.toLowerCase();
 
         if (response?.result === "success") {
           showNewsletterMessage(
@@ -511,46 +508,34 @@ document.addEventListener("DOMContentLoaded", () => {
           );
 
           newsletterForm.reset();
+
         } else if (
-          lowerMessage.includes(
-            "already subscribed"
-          ) ||
-          lowerMessage.includes(
-            "already a list member"
-          ) ||
-          lowerMessage.includes(
-            "is already a list member"
-          )
+          lowerMessage.includes("already subscribed") ||
+          lowerMessage.includes("already a list member") ||
+          lowerMessage.includes("is already a list member")
         ) {
           showNewsletterMessage(
             "This email address is already on our mailing list, so you’re all set!",
             "success"
           );
+
         } else if (
-          lowerMessage.includes(
-            "cannot be added"
-          ) ||
-          lowerMessage.includes(
-            "invalid email"
-          ) ||
-          lowerMessage.includes(
-            "enter a different email"
-          )
+          lowerMessage.includes("cannot be added") ||
+          lowerMessage.includes("invalid email") ||
+          lowerMessage.includes("enter a different email")
         ) {
           showNewsletterMessage(
             "We couldn’t add that email address. Please check it carefully or try a different address."
           );
+
         } else if (
-          lowerMessage.includes(
-            "too many"
-          ) ||
-          lowerMessage.includes(
-            "try again later"
-          )
+          lowerMessage.includes("too many") ||
+          lowerMessage.includes("try again later")
         ) {
           showNewsletterMessage(
             "The mailing list is temporarily unable to process the signup. Please wait a moment and try again."
           );
+
         } else {
           showNewsletterMessage(
             rawMessage ||
@@ -579,6 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ==================================================
 // CLASS PLAN POPUPS
+// Legacy handlers retained from supplied script
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -665,13 +651,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-
   const scheduleTriggers =
     document.querySelectorAll("[data-schedule-target]");
 
   const scheduleModals =
     document.querySelectorAll(".schedule-plan-modal");
-
 
   function openScheduleModal(modal) {
     if (!modal) return;
@@ -681,7 +665,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.classList.add("schedule-plan-open");
   }
-
 
   function closeScheduleModal(modal) {
     if (!modal) return;
@@ -697,94 +680,74 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  // Open the correct timetable
   scheduleTriggers.forEach((trigger) => {
-
     trigger.addEventListener("click", () => {
-
       const targetId = trigger.dataset.scheduleTarget;
       const modal = document.getElementById(targetId);
 
       openScheduleModal(modal);
-
     });
-
   });
 
-
-  // Close buttons + clicking the backdrop
   scheduleModals.forEach((modal) => {
-
     const closeButtons =
       modal.querySelectorAll("[data-schedule-close]");
 
     closeButtons.forEach((button) => {
-
       button.addEventListener("click", () => {
         closeScheduleModal(modal);
       });
-
     });
 
-
     modal.addEventListener("click", (event) => {
-
       if (event.target === modal) {
         closeScheduleModal(modal);
       }
-
     });
-
   });
 
-
-  // Escape closes any open timetable
   document.addEventListener("keydown", (event) => {
-
     if (event.key !== "Escape") return;
 
     scheduleModals.forEach((modal) => {
       closeScheduleModal(modal);
     });
-
   });
-
 });
 
-// ---------- BROKEN IMAGE HANDLING ----------
+// ==================================================
+// BROKEN IMAGE HANDLING
+// ==================================================
 
-document.querySelectorAll('img').forEach((img) => {
+document.querySelectorAll("img").forEach((img) => {
+  const markAsBroken = () => {
+    img.classList.add("broken-image");
+  };
 
-    const markAsBroken = () => {
-        img.classList.add('broken-image');
-    };
+  img.addEventListener("error", markAsBroken);
 
-    img.addEventListener('error', markAsBroken);
-
-    // Catch images which failed before the JS loaded
-    if (img.complete && img.naturalWidth === 0) {
-        markAsBroken();
-    }
-
+  if (img.complete && img.naturalWidth === 0) {
+    markAsBroken();
+  }
 });
 
-// ---------- SKIP SUBSIDISED PRICING QUESTIONS ----------
+// ==================================================
+// SKIP SUBSIDISED PRICING QUESTIONS
+// ==================================================
 
-const skipSubsidyBtn = document.getElementById('skip-subsidy-btn');
-const applicationConfirmation = document.getElementById('application-confirmation');
+const skipSubsidyBtn =
+  document.getElementById("skip-subsidy-btn");
+
+const applicationConfirmation =
+  document.getElementById("application-confirmation");
 
 if (skipSubsidyBtn && applicationConfirmation) {
-
-  skipSubsidyBtn.addEventListener('click', () => {
-
+  skipSubsidyBtn.addEventListener("click", () => {
     applicationConfirmation.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
+      behavior: "smooth",
+      block: "center"
     });
-
   });
-
 }
 
 // ==================================================
@@ -792,8 +755,11 @@ if (skipSubsidyBtn && applicationConfirmation) {
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const pricingTrigger = document.querySelector(".pricing-trigger");
-  const pricingPanel = document.getElementById("drop-in-pricing");
+  const pricingTrigger =
+    document.querySelector(".pricing-trigger");
+
+  const pricingPanel =
+    document.getElementById("drop-in-pricing");
 
   if (!pricingTrigger || !pricingPanel) return;
 
@@ -813,8 +779,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // ==================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  const passPanels = document.querySelectorAll(".passes-details");
+  const passPanels =
+    document.querySelectorAll(".passes-details");
 
   function loadPassIframe(panel) {
     if (!panel) return;
@@ -830,27 +796,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  // Normal manual opening of a panel
   passPanels.forEach((panel) => {
-
-    // Always begin closed when the page loads
     panel.removeAttribute("open");
 
     panel.addEventListener("toggle", () => {
-
       if (panel.open) {
         loadPassIframe(panel);
       }
     });
   });
 
-
-  // Text links which jump to and open a Passes panel
   document.querySelectorAll("[data-open-passes]").forEach((link) => {
-
     link.addEventListener("click", (event) => {
-
       event.preventDefault();
 
       const panelId = link.dataset.openPasses;
@@ -859,13 +816,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!panel) return;
 
       panel.open = true;
-
       loadPassIframe(panel);
-
-      // Give <details> time to expand before calculating
-      // its final position.
       window.setTimeout(() => {
-
         panel.scrollIntoView({
           behavior: "smooth",
           block: "start"

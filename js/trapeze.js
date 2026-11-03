@@ -83,35 +83,70 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
   // ==================================================
   // FORMSPREE FORM SUBMISSION
-  // Cross-browser support and manual fallback
+  // Validation, diagnostics and safe fallback
   // ==================================================
 
   forms.forEach((form) => {
     const status = form.parentElement.querySelector(".form-status");
     const submitButton = form.querySelector('button[type="submit"]');
-    const loadTimeInput = form.querySelector("[data-form-load-time]");
+    const originalButtonText =
+      form.dataset.buttonText || "Send Message";
 
-    if (loadTimeInput) {
-      loadTimeInput.value = Date.now();
-    }
+    let isSubmitting = false;
 
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-
-      const honeypot = form.querySelector('input[name="_gotcha"]');
-
-      // Retain honeypot protection.
-      if (honeypot && honeypot.value.trim() !== "") {
-        return;
+    // Create a non-personal reference for troubleshooting.
+    function createAttemptId() {
+      if (window.crypto && window.crypto.randomUUID) {
+        return window.crypto.randomUUID();
       }
 
-      // The previous four-second restriction has been removed.
-      // Fast submissions and autofill are now permitted.
+      return (
+        Date.now().toString(36) +
+        "-" +
+        Math.random().toString(36).slice(2, 10)
+      );
+    }
+
+    // Send anonymous outcome information to Google Analytics.
+    // Never send names, email addresses or message content.
+    function trackFormEvent(category, attemptId) {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "contact_form_result", {
+          form_name: "flighthouse_contact",
+          result_category: category,
+          attempt_id: attemptId
+        });
+      }
+    }
+
+    function showStatus(message, type = "error") {
+      if (!status) return;
+
+      status.textContent = message;
+      status.classList.remove("is-error", "is-success");
+
+      status.classList.add(
+        type === "success" ? "is-success" : "is-error"
+      );
+    }
+
+    function resetButton() {
+      isSubmitting = false;
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+      }
+    }
+
+    function setSendingState() {
+      isSubmitting = true;
 
       if (status) {
-        status.textContent = "Sending...";
+        status.textContent = "Sending your message...";
         status.classList.remove("is-error", "is-success");
       }
 
@@ -119,71 +154,255 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton.disabled = true;
         submitButton.textContent = "Sending...";
       }
+    }
+
+    function getFieldLabel(field) {
+      if (field.id) {
+        const label = form.querySelector(
+          `label[for="${field.id}"]`
+        );
+
+        if (label) {
+          return label.textContent.replace("*", "").trim();
+        }
+      }
+
+      if (field.type === "checkbox") {
+        return "Consent";
+      }
+
+      return field.name || "This field";
+    }
+
+    function getValidationMessage(field) {
+      const label = getFieldLabel(field);
+
+      if (field.validity.valueMissing) {
+        if (field.type === "checkbox") {
+          return "Please tick the consent box before sending.";
+        }
+
+        if (field.tagName === "SELECT") {
+          return "Please choose the subject of your enquiry.";
+        }
+
+        return `Please complete the ${label} field.`;
+      }
+
+      if (field.validity.typeMismatch) {
+        if (field.type === "email") {
+          return "Please enter a valid email address.";
+        }
+      }
+
+      return `Please check the ${label} field.`;
+    }
+
+    function showValidationError(field) {
+      if (!field) return;
+
+      field.classList.add("field-invalid");
+
+      showStatus(getValidationMessage(field));
+
+      field.focus();
+    }
+
+    // Show clear guidance when native browser validation fails.
+    // Invalid events occur before the submit event.
+    form.addEventListener(
+      "invalid",
+      (event) => {
+        const field = event.target;
+
+        if (!field || !field.validity) return;
+
+        const attemptId = createAttemptId();
+
+        trackFormEvent("validation_error", attemptId);
+
+        // Only show the first invalid field.
+        if (!form.querySelector(".field-invalid")) {
+          showValidationError(field);
+        }
+      },
+      true
+    );
+
+    // Remove the invalid styling as visitors correct fields.
+    form.querySelectorAll("input, select, textarea").forEach(
+      (field) => {
+        function clearFieldError() {
+          if (field.validity && field.validity.valid) {
+            field.classList.remove("field-invalid");
+          }
+        }
+
+        field.addEventListener("input", clearFieldError);
+        field.addEventListener("change", clearFieldError);
+      }
+    );
+
+    function addStandardSubmissionOption(attemptId) {
+      if (!status) return;
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "form-fallback-options";
+
+      const explanation = document.createElement("p");
+      explanation.textContent =
+        "If the problem continues, you can try sending your enquiry using the standard browser form.";
+
+      const fallbackButton = document.createElement("button");
+      fallbackButton.type = "button";
+      fallbackButton.className = "btn form-fallback-btn";
+      fallbackButton.textContent = "Try standard submission";
+
+      fallbackButton.addEventListener("click", () => {
+        if (!form.reportValidity()) {
+          return;
+        }
+
+        trackFormEvent("standard_submission_selected", attemptId);
+
+        // This submits directly through the browser.
+        // It bypasses our JavaScript submit listener.
+        // The visitor will see Formspree's response page.
+        HTMLFormElement.prototype.submit.call(form);
+      });
+
+      wrapper.appendChild(explanation);
+      wrapper.appendChild(fallbackButton);
+
+      status.appendChild(wrapper);
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (isSubmitting) {
+        return;
+      }
+
+      const attemptId = createAttemptId();
+
+      // Explicitly check validity as an additional safeguard.
+      if (!form.checkValidity()) {
+        form.reportValidity();
+
+        const invalidField = form.querySelector(":invalid");
+
+        if (invalidField) {
+          showValidationError(invalidField);
+        }
+
+        return;
+      }
+
+      // Clear any previous validation styling.
+      form.querySelectorAll(".field-invalid").forEach(
+        (field) => field.classList.remove("field-invalid")
+      );
+
+      setSendingState();
+
+      // Timeout avoids leaving the button on "Sending..."
+      // indefinitely. A timeout does not prove the message
+      // failed to reach Formspree.
+      const controller = new AbortController();
+      const timeoutId = window.setTimeout(() => {
+        controller.abort();
+      }, 20000);
 
       try {
         const response = await fetch(form.action, {
           method: "POST",
           body: new FormData(form),
           headers: {
-            Accept: "application/json",
+            Accept: "application/json"
           },
+          signal: controller.signal
         });
 
         if (response.ok) {
+          trackFormEvent("success", attemptId);
+
           form.reset();
 
-          if (status) {
-            status.textContent =
-              form.dataset.successMessage ||
-              "Thank you. Your form has been sent.";
-            status.classList.add("is-success");
-          }
+          showStatus(
+            form.dataset.successMessage ||
+            "Thank you. Your message has been sent.",
+            "success"
+          );
 
           openPopup();
 
         } else {
-          if (status) {
-            status.textContent =
-              "Sorry, there was a problem sending your form. Please try again.";
-            status.classList.add("is-error");
+          const httpStatus = response.status;
+
+          trackFormEvent(
+            `http_${httpStatus}`,
+            attemptId
+          );
+
+          if (httpStatus === 429) {
+            showStatus(
+              "Too many submissions have been received in a short time. Please wait a little before trying again."
+            );
+
+          } else if (
+            httpStatus === 400 ||
+            httpStatus === 422
+          ) {
+            showStatus(
+              "Your message couldn't be accepted. Please check your details and try again."
+            );
+
+          } else if (
+            httpStatus === 403
+          ) {
+            showStatus(
+              "The form service has refused this submission. Please try standard submission or contact FlightHouse another way."
+            );
+
+          } else {
+            showStatus(
+              "The form service returned an error. Your message has not been confirmed as sent. We are working to fix this issue."
+            );
           }
+
+          addStandardSubmissionOption(attemptId);
         }
 
       } catch (error) {
-        console.error("Formspree submission failed:", error);
+        const timedOut = error.name === "AbortError";
 
-        if (status) {
-          status.textContent =
-            "We couldn't connect to the form service. You can try again, or use standard submission: ";
+        trackFormEvent(
+          timedOut ? "timeout" : "network_error",
+          attemptId
+        );
 
-          status.classList.add("is-error");
+        console.error(
+          "FlightHouse contact form error:",
+          error
+        );
 
-          // User-controlled fallback.
-          // Do not automatically resend because the first
-          // request may have reached Formspree.
+        if (timedOut) {
+          showStatus(
+            "The request took too long. We couldn't confirm whether your message was received. Please check before trying again."
+          );
 
-          const fallbackButton = document.createElement("button");
-          fallbackButton.type = "button";
-          fallbackButton.textContent = "Try standard submission";
-          fallbackButton.className = "btn form-fallback-btn";
-
-          fallbackButton.addEventListener("click", () => {
-            HTMLFormElement.prototype.submit.call(form);
-          });
-
-          status.appendChild(fallbackButton);
+        } else {
+          showStatus(
+            "We couldn't confirm that your message was sent. This may be a connection or browser issue. Your message is still here."
+          );
         }
+
+        addStandardSubmissionOption(attemptId);
 
       } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent =
-            form.dataset.buttonText || "Send";
-        }
-
-        if (loadTimeInput) {
-          loadTimeInput.value = Date.now();
-        }
+        window.clearTimeout(timeoutId);
+        resetButton();
       }
     });
   });

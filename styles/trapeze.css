@@ -4428,3 +4428,42 @@ img.broken-image {
     transform: translateY(180px);
   }
 }
+
+
+/* Contact form validation and feedback */
+
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: 3px solid #b53636;
+  outline-offset: 3px;
+}
+
+.contact-form .field-invalid {
+  border: 2px solid #b42318;
+}
+
+.contact-form .form-help {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contact-form .form-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.form-status:not(:empty) {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.form-status.is-error {
+  color: #8b1e1e;
+  font-weight: 600;
+}
+
+.form-status.is-success {
+  color: #205b39;
+  font-weight: 600;
+}

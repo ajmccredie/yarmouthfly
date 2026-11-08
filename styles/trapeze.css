@@ -4467,3 +4467,76 @@ img.broken-image {
   color: #205b39;
   font-weight: 600;
 }
+
+
+/* =========================================
+   ARTS COUNCIL FUNDING LOGOS
+========================================= */
+
+/* Homepage: centre both logos on the same axis */
+.homepage-logo-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.75rem;
+  margin: 1.5rem auto;
+}
+
+/* Funding logo above the circus tent */
+.homepage-logo-stack > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+}
+
+.arts-funding-home-logo {
+  display: block;
+  width: auto;
+  height: 110px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Existing circus tent logo */
+.homepage-logo-stack .academy-logo {
+  display: block;
+  width: clamp(180px, 30vw, 320px);
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+/* Small white funding logo in footer */
+.footer-logo-links .arts-funding-footer-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 48px;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .homepage-logo-stack {
+    gap: 0.5rem;
+    margin: 1rem auto;
+  }
+
+  .arts-funding-home-logo {
+    height: 100px;
+    max-width: 100%;
+  }
+
+  .homepage-logo-stack .academy-logo {
+    width: min(75vw, 280px);
+  }
+
+  .footer-logo-links .arts-funding-footer-logo {
+    max-height: 42px;
+    max-width: 130px;
+  }
+}

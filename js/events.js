@@ -75,10 +75,10 @@ const flightHouseEvents = [
         image: "",
 
         bookingUrl:
-            "https://bookwhen.com/flighthouse?start=2026-12-16T00%3A00%3A00.000%2B00%3A00#focus=ev-si2gw-20261219210000",
+            "https://bookwhen.com/flighthouse?tags=risque#focus=ev-si2gw-20261219210000",
 
         iframeUrl:
-            "https://bookwhen.com/flighthouse/iframe/e/ev-si2gw-20261219210000",
+            "https://bookwhen.com/flighthouse/iframe?tags=risque#focus=ev-si2gw-20261219210000",
 
         active: true
     },
@@ -108,10 +108,10 @@ const flightHouseEvents = [
         image: "",
 
         bookingUrl:
-            "https://bookwhen.com/flighthouse?start=2026-12-16T00%3A00%3A00.000%2B00%3A00#focus=ev-s74cs-20261219223000",
+            "https://bookwhen.com/flighthouse?tags=risque#focus=ev-s74cs-20261219223000",
 
         iframeUrl:
-            "https://bookwhen.com/flighthouse/iframe/e/ev-s74cs-20261219223000",
+            "https://bookwhen.com/flighthouse/iframe?tags=risque#focus=ev-s74cs-20261219223000",
 
         active: true
     }
